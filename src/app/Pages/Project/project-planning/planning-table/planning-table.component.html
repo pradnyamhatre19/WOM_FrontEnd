@@ -1,0 +1,187 @@
+<p-table #dt 
+[columns]="colsplanning" 
+[value]="planningtabledata" selectionMode="single"
+(onRowSelect)="onRowSelect($event)" 
+[paginator]="true" [rows]="10" class="some-custom-class-name" 
+[resizableColumns]="true"
+[totalRecords]=[planningtablelength]>
+
+    <ng-template pTemplate="caption">    
+    <div class="container-fluid">
+        <div class="row">
+            <!-- searchbox -->
+            <div class="col-md-6 startingcolumn">
+                <div class="search_button_wrapper">
+                    <div class="search_wrapper">
+                        <input type="text" class="inputtextsearch" placeholder="Search for projects" (input)="dt.filterGlobal($event.target.value, 'contains')">                        
+                    </div>
+                    <div class="button_wrapper">
+                        <button class="searchiconbutton"><img src="assets/images/BlueIcons/icons8-search-40.png" class="search_image_icon"></button>
+                    </div>
+                </div>
+            </div>
+            <!-- right sided 4 buttons -->
+            <div class="col-md-6 startingcolumn">
+                <div class="buttons_parent">
+                    <div class="budgeting_wrapper rightsidebuttons">
+                        <button class="budgeting" (click)="budgeting_button()"
+                        [ngClass]="{'budgeting':!budgetingSelected,
+                                    'color_budgeting':budgetingSelected}">
+                        <span class="rightsidebuttons_text" 
+                        [ngClass]="{'rightsidebuttons_text':!budgetingSelected,
+                                    'color_rightsidebuttons_text':budgetingSelected}">Budgeting({{this.budgeting}})</span></button>
+                    </div>
+                    <div class="budgeting_wrapper rightsidebuttons">
+                        <button class="budgeting planningclass" (click)="planning_button()"
+                        [ngClass]="{'budgeting':!planningSelected,
+                                    'color_budgeting':planningSelected}">
+                        <span class="rightsidebuttons_text"
+                        [ngClass]="{'rightsidebuttons_text':!planningSelected,
+                                    'color_rightsidebuttons_text':planningSelected}">Planning({{this.planning}})</span></button>
+                    </div>
+                    <div class="budgeting_wrapper rightsidebuttons display">
+                        <button class="budgeting activeclass" (click)="active_button()"
+                        [ngClass]="{'budgeting':!activeSelected,
+                                    'color_budgeting':activeSelected}">
+                        <span class="rightsidebuttons_text"
+                        [ngClass]="{'rightsidebuttons_text':!activeSelected,
+                                    'color_rightsidebuttons_text':activeSelected}">Active(28)</span></button>
+                    </div>
+                    <div class="budgeting_wrapper rightsidebuttons display">
+                        <button class="budgeting" (click)="archived_button()"
+                        [ngClass]="{'budgeting':!archivedSelected,
+                                    'color_budgeting':archivedSelected}">
+                        <span class="rightsidebuttons_text" 
+                        [ngClass]="{'rightsidebuttons_text':!archivedSelected,
+                                    'color_rightsidebuttons_text':archivedSelected}">Archived(39)</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </ng-template>
+    <!-- test -->
+    <ng-template pTemplate="colgroup" let-columns>
+        <colgroup>
+            <col *ngFor="let col of columns" [style.width]="col.width">
+        </colgroup>
+    </ng-template>
+    <!-- Rows and columns -->
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+          <th *ngFor="let col of columns" pResizableColumn>
+              {{col.header}}
+          </th>
+      </tr>
+  </ng-template>
+  <!-- <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+          <td *ngFor="let col of columns; let i =  index" class="ui-resizable-column">
+              {{rowData[col.field]}}
+          </td>
+      </tr>
+  </ng-template> -->
+  <!-- new functionality -->
+  <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+        <td *ngFor="let col of columns" class="ui-resizable-column">
+            <div *ngIf="col.header == 'Action' else elseBlock">
+                        <button pButton *ngIf="isEdit" type="button" icon="fa fa-pencil" (click)="editProjectData(dt,rowIndex)" data-toggle="tooltip" title="Edit"></button>                        
+                    &nbsp;
+                        <button pButton *ngIf="isDelete" type="button" icon="fa fa-trash" (click)="delete(dt,rowIndex)" data-toggle="tooltip" title="Delete"></button>
+            </div>
+            <ng-template #elseBlock>
+                <span *ngIf="col.header !== 'Budget' ">
+                        {{rowData[col.field]}}
+                    </span>
+                    <span *ngIf="col.header === 'Budget' ">
+                        {{rowData[col.field] | newcurrency}}
+                    </span>
+            </ng-template>
+        </td>
+    </tr>
+</ng-template>
+</p-table>
+<div *ngIf="norecords" class="redclass">
+    No Records to display here
+</div>
+<div [ngClass]="{'backendErrorClass':this.commonService.backendError}" *ngIf="this.commonService.backendError">
+    {{this.commonService.backendMsg}}
+</div>
+<!-- planning dialog box -->
+<p-dialog  
+[(visible)]="displayplanning" 
+[modal]="true" 
+[responsive]="true" 
+[width]="224" 
+[style]="{'min-height':'auto','min-width':'auto'}"
+[minY]="70" 
+[maximizable]="false" 
+[baseZIndex]="10000" appendTo="body">
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 startingcolumn planning_dialog_wrapper">
+                <div class="row">
+                    <div class="col-md-12 startingcolumn planning_items planning_bottom_space">
+                        <div>
+                            <button class="planning_dialog_button planning_orange" (click)="create_pi_wi()"><span class="budgeting_dialog_button_text">Create PI/WI</span></button>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-12 startingcolumn planning_orders planning_bottom_space">
+                        <div>
+                            <button class="planning_dialog_button planning_orange" (click)="create_po()"><span class="budgeting_dialog_button_text">Create PO/WO</span></button>
+                        </div>
+                    </div> -->
+                    <div class="col-md-12 startingcolumn planning_view planning_bottom_space">
+                        <div>
+                            <button class="planning_dialog_button planning_orange" (click)="view_items()"><span class="budgeting_dialog_button_text">Create PO/WO</span></button>
+                        </div>
+                    </div>
+                    <div class="col-md-12 startingcolumn planning_cancel planning_bottom_space">
+                        <div>
+                            <button class="planning_dialog_button budgeting_cancel_class" (click)="planning_dialog_cancel()"><span class="budgeting_dialog_button_text">Cancel</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</p-dialog>
+
+<!-- popup -->
+<p-dialog header="" 
+[(visible)]="display" 
+[closable]="false" 
+[modal]="true" 
+[responsive]="true" 
+[minWidth]="200" 
+[minY]="70" 
+[maximizable]="false"
+[baseZIndex]="10000">
+<div class="container padding_class">
+  <p class="headBold">Are you sure you want to delete this Project?</p>
+    <button type="button" class="btn popupbtn orangeclass" (click)="deleteProject()">Yes</button>
+    <button type="button" class="btn popupbtn silverclass" (click)="close()">No</button>
+</div>
+</p-dialog>
+
+<p-dialog header="" 
+  [(visible)]="successfull_pop_up" 
+  [closable]="false" 
+  [modal]="true" 
+  [responsive]="true" 
+  [minWidth]="200" 
+  [minY]="70" 
+  [maximizable]="false" 
+  [baseZIndex]="10000" appendTo="body">
+  <div class="pop_open_close_wraper">
+      <div class="pop_open_close_header pop_open_close_bottom">
+          {{this.message}}
+      </div>
+      <div class="ok_class">
+          <button (click)="okMessage()" class="pop_button pop_button_orange">OK</button>
+      </div>
+  </div>
+  </p-dialog>

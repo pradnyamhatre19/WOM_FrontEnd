@@ -1,0 +1,128 @@
+
+<!-- <header></header> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 startingcolumn pic_wrapper">
+            <div class="row">
+                <!-- breadcrum -->
+                 <div class="col-md-12 startingcolumn pic_breadcrum_wrapper">
+                    <div class="row">
+                        <div class="col-md-6 startingcolumn pic_breadcrum_left_wrapper">
+                             <div class="pic_bread_left">
+                                <span>Dashboard</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 startingcolumn pic_breadcrum_right_wrapper">
+                            <div class="pic_bread_right">
+                                <span>You are here:Dashboard</span>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+          <!-- breadcrum ends here -->
+          <!-- table -->
+          <div class="col-md-12 startingcolumn dashboard_table_wrapper">
+              <div class="row">
+                  <div [ngClass]="{'backendErrorClass':this.commonService.backendError}" *ngIf="this.commonService.backendError" class="internalerrorclass">
+                        {{this.commonService.backendMsg}}
+                    </div>
+                  <div class="col-md-12 startingcolumn">
+                      <div class="row">
+                            
+                          <div class="col-md-6 startingcolumn dash_left_wrapper">
+                              <div class="dashleft">
+                                <div class="stylish orangish">
+                                    Listings 
+                                </div>
+                                <div class="content">
+                                    <div class="col-md-12 startingcolumn">
+                                        <div class="row">
+                                                      <!--  -->
+                                                      <p-table #dt 
+                                                      [columns]="colsplanning" 
+                                                      [value]="dashboardtabledata" selectionMode="single"
+                                                      (onRowSelect)="onRowSelect($event)" 
+                                                      [paginator]="true" [rows]="10" class="some-custom-class-name2" 
+                                                      [resizableColumns]="true"
+                                                      [totalRecords]=[dashboardtabledatalength]
+                                                      >
+                                                          <ng-template pTemplate="colgroup" let-columns>
+                                                              <colgroup>
+                                                                  <col *ngFor="let col of columns" [style.width]="col.width">
+                                                              </colgroup>
+                                                          </ng-template>
+                                                          <ng-template pTemplate="header" let-columns>
+                                                            <tr>
+                                                                <th *ngFor="let col of columns" pResizableColumn>
+                                                                    {{col.header}}
+                                                                </th>
+                                                            </tr>
+                                                        </ng-template>
+                                                        <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+                                                            <tr [pSelectableRow]="rowData">
+                                                                <td *ngFor="let col of columns; let i =  index" class="ui-resizable-column">
+                                                                    <span *ngIf ="col.header == 'Query Title' else elseBlock" class="linkClass">
+                                                                        <a class="main-nav-item" (click)="linkClicked(dt,rowIndex)">{{rowData[col.field]}}</a>
+                                                                    </span>
+                                                                    <ng-template #elseBlock>
+                                                                        {{rowData[col.field]}}
+                                                                    </ng-template>
+                                                                </td>
+                                                            </tr>
+                                                        </ng-template>
+                                                      </p-table>
+                                                      <div *ngIf="norecords" class="redclass">
+                                                            No Records to display here
+                                                    </div>
+                                                    
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                          <div class="col-md-6 startingcolumn dash_right_wrapper">
+                                <div class="dashright">
+                                    <div class="stylish bluish">
+                                        Bar graph
+                                    </div>
+                                    <div class="content">
+                                        <p-chart type="bar" [data]="databar" [options]="chartOptions"></p-chart>
+                                    </div>
+                                </div>
+                            </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12 startingcolumn second_wrapper">
+                    <div class="row">
+                        <div class="col-md-6 startingcolumn dash_left_wrapper">
+                            <div class="dashleft">
+                                <div class="stylish reddish">
+                                    Listings 3
+                                </div>
+                                <div class="content">
+                                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="col-md-6 startingcolumn dash_right_wrapper">
+                              <div class="dashright">
+                                <div class="stylish greenish">
+                                    Pie Chart
+                                </div>
+                                <div class="content">
+                                    <p-chart type="pie" [data]="data"></p-chart>
+                                </div>
+                              </div>
+                          </div> -->
+                    </div>
+                </div>
+              </div>
+          </div>
+          <!-- table ends here -->
+            </div>
+        </div>
+    </div>
+</div>
+        
+     

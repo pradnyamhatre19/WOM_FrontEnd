@@ -1,0 +1,1009 @@
+/** File upload label */
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    width:72px;
+    font-weight: 500;
+    background-color: #f1f1f1;
+    display: inline-block;
+    border:1px solid #a3a3a3;
+    line-height:15px;
+    font-size:12px;
+    padding:5px;
+    font-family:"Roboto Slab Bold";
+    margin:7px 0px 8px 0px;
+
+}
+/* .Renderfileupload{
+     top: 40px;
+    display: block;
+    height: 24px;
+    position: absolute;
+    width: 87px;
+    font-weight: 500;
+    background-color: #f1f1f1;
+    border: 1px solid #a3a3a3;
+    text-align: center; 
+} */
+.uploadlogo{
+    font-size:12px;
+    line-height: 20px;  
+}
+.upload{
+    width: 81%;
+    font-size:12px;
+    line-height: 20px;
+}
+
+/***/
+:host >>> .ui-dialog {
+    min-height: 100px !important;
+}
+:host >>> .ui-dialog .ui-dialog-titlebar {
+    padding:0;
+}
+:host >>> .ui-dialog.ui-widget .ui-dialog-titlebar {
+    padding:0;
+}
+:host >>> .ui-dialog.ui-widget .ui-dialog-content{
+    padding:0;    
+}
+:host >>> .ui-dialog .ui-dialog-content {
+    padding:0;        
+}
+.inliner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.leftsilverclass{
+    padding-left:20px;
+}
+.popupbtn{
+    /* color: #ffffff; */
+    /* padding: 6px; */
+    /* margin: 0px 10px; */
+    /* max-width: 100px;
+    width:80%;
+    margin-left:30px; */
+    height: 37px;
+    width: 110px;
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    font-family: "Roboto Slab-Bold";
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+}
+/* Added by Amol */
+
+
+:host >>> .multiselect-dropdown .dropdown-btn{
+    font-size: 12px !important;
+    border:none !important;
+    color: #898989 !important;
+    font-family: "Roboto Slab" !important;
+    padding: 6px 5px !important;
+}
+:host >>> .multiselect-dropdown .dropdown-btn .dropdown-down{
+    display :none !important;
+}
+:host >>> .multiselect-dropdown .dropdown-btn .dropdown-up{
+    display :none !important;
+}
+
+.client_img_icon{
+    width:24px;
+    height: 19px;
+}
+.container-fluid, .row{
+    padding:0;
+    margin:0;
+}
+.alert-danger{
+    color: red;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    font-size: 14px;
+}
+.alert{
+    /* text-align: right; */
+    /* float: right; */
+    display: -webkit-inline-box;
+    font-size: 11px;
+    padding: 5px;
+    margin-bottom: 0px !important;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: "Roboto Slab-Bold";	    
+    
+}
+.paddingleft{
+    padding-left: 46px !important;
+}
+
+
+
+.popupoverlay{
+    z-index: 25;
+    opacity: 1;
+}
+
+
+
+.padbtm5{
+    padding-bottom: 3px;
+}
+
+
+
+
+/*Added by Amol*/
+.startingcolumn{
+    padding:0;
+    margin:0;
+}
+/* boder color of input type */
+input:focus, textarea:focus, select:focus, submit:focus, button:focus {
+    outline-offset: 0px !important;
+    outline: none !important;
+    }
+.popupbtn:active,
+.popupbtn:focus,
+.popupbtn.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}   
+:host >>> .ui-inputtext:focus{
+        box-shadow: 0px 0px 0px #ffffff !important;
+    }
+
+.add_new_project_whole_wrapper{
+    position: relative;
+    top:-131px;
+
+}
+.add_new_project_padding_body{
+    padding:0;
+}
+/* projectname-Breadcrum*/
+.project_text{
+    height: 32px;	
+    color: #FFFFFF;	
+    font-family: "Roboto Slab";	
+    font-size: 24px;
+    font-weight: normal;	
+    letter-spacing: 0.07px;	
+    line-height: 32px;
+}
+.breadcrum_wrapper{
+    display: flex;
+    align-items: center;
+    float: right;
+    height: 32px;	
+    color: #FFFFFF;	
+    font-family: Helvetica;	
+    font-size: 12px;	
+    font-weight: bold;	
+    letter-spacing: 0.04px;	
+    line-height: 14px;	
+    text-align: right;
+    position: relative;
+    top:4px;
+    /* position: relative;
+    top:5px; */
+    /* width: 290px; */
+}
+.project{
+    /* position: relative; */
+    /* top:-145px; */
+    margin-bottom:28.55px;
+    /* top:-129px   if you want to keep whole content on single page scrolling */
+}
+
+/* formcontent */
+.new_project_wrapper{
+    /* position: relative; */
+    /* top:-170px; */
+    padding:10px 10px 30px 10px;
+    border-radius: 4px;	
+    background-color: #FFFFFF;	
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+    /* background: yellowgreen; */
+    /* top:-140px   if you want to keep whole content on single page scrolling */
+}
+.new_pro_heading{
+    height:27px;
+}
+.new_pro_heading_text{
+    padding-left:10px;
+    color: #515151;	
+    font-family: "Roboto Slab-Bold";	
+    font-size: 15px;		
+    letter-spacing: 0.05px;	
+    line-height: 27px;
+}
+.client_name_wrapper{
+    padding-top:16px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:7px;	
+    border-bottom: 1px solid #D3D3D3;
+    height:76px;
+}
+.client_name_head_text{	
+    color: #515151;	
+    font-family: "Roboto Slab-Bold";	
+    font-size: 13px;		
+    line-height: 18px;
+    display: block;
+    margin-bottom:5px;
+}
+.project_name_wrapper{
+    padding-top:16px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:7px;	
+    border-bottom: 2px solid #4DE2EE;
+    height:76px;
+    width:85%;
+}
+.project_input_box{
+    height: 24px;	
+    /* width: 510.82px;	 */
+    width:100%;
+    color: #4DE2EE;	
+    font-family: "Roboto Slab";	
+    font-size: 18px;	
+    line-height: 24px;
+    border:none;
+    text-transform: capitalize;
+}
+.project_To_duplicate_block{
+    /* padding:16px 10px 5px 10px; */ /* Change Done by Amol For client side data multiselect*/
+    /* height: 76px; */ /* Change Done by Amol For client side data multiselect*/
+    /* width: 274px; */ /* orignal */
+    /* width:85%; */ /* Change Done by Amol For client side data multiselect*/
+    border-bottom: 1px solid #D3D3D3;
+}
+.project_full_block{
+    /* float:right;*/ /* Change Done by Amol For Address Line */
+    float:left;
+    padding:16px 10px 5px 10px;
+    height:76px; /* Change Done by Amol For Address Line*/
+    /* width: 274px; */
+    width:85%;
+    border-bottom: 1px solid #D3D3D3;
+}
+.project_half_block{
+    font-size:15px;
+    padding:16px 10px 5px 10px;
+    height: 76px;
+    /* width: 274px; */
+    width:85%;
+    border-bottom: 1px solid #D3D3D3;    
+}
+.project_half_block1{
+    font-size: 15px;
+    padding:16px 10px 5px 10px;
+    height: 76px;
+    width:100%;
+    border-bottom: 1px solid #D3D3D3;   
+}
+.project_half_block111{
+    padding:16px 10px 5px 10px;
+    height: 76px;
+    width:110%;
+    border-bottom: 1px solid #D3D3D3;  
+}
+.project_half_block_right{
+    float:right;
+}
+.project_half_block_left{
+    float:left;
+}
+.project_middle_block{
+    margin:0 auto;
+}
+.date_wrapper{
+    width:100%;
+    height: 24px;
+    /* overflow: hidden; */
+    background: no-repeat #ffffff;
+    background-image:url("../../../../../assets/images/BlueIcons/icons8-planner.png");
+    background-size: 20px 20px;
+    background-position:right center;
+}
+.datebox{
+    height: 24px;	
+    width: 259px;	
+    color: #9B9B9B;	
+    font-family: "Roboto Slab";	
+    font-size: 18px;	
+    line-height: 24px;
+    border:none;
+    /* background: url("/assets/images/BlueIcons/icons8-planner.png) no-repeat ; */
+}
+.calenderclass{
+    position: relative;
+    right:0px;
+    width:20px;
+    height:20px;
+}
+.iconbody{
+    position: relative;
+    top:0;
+    bottom:0;
+    right:0;
+}
+/* red asterik */
+.redstar{
+    color: red;
+}
+/* dropdown list */
+.drop_list {
+    /* width: 250px; */
+    width:100%;
+    height: 24px;
+    /* overflow: hidden; */
+    background: no-repeat #ffffff;
+    background-image:url("../../../../../assets/images/BlueIcons/icons8-down-button-40.png");
+    background-size: 20px 20px;
+    background-position:right bottom;
+}
+
+.drop_list select{
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    background: transparent;
+    height: 24px;
+    /* width: 256px; */
+    width:100%;
+    overflow: hidden;
+    color: #9B9B9B;	
+    font-family: "Roboto Slab";	
+    font-size: 18px;	
+    line-height: 24px;
+    border:none;
+    -webkit-appearance:none;
+    appearance:none;
+}
+
+/* dropdown editable */
+.drop_list_client_name{
+    width:100%;
+    /* height: 30px; */
+    /* overflow: hidden; */
+    background: no-repeat #ffffff;
+    background-image:url("../../../../../assets/images/BlueIcons/icons8-down-button-40.png");
+    background-size: 20px 20px;
+    background-position:right center;
+}
+#dropinput{
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    background: transparent;
+    height: 24px;
+    width: 100%;
+    overflow: hidden;
+    border:none;
+    color: #4A4A4A;	
+    font-family: "Roboto Slab";	
+    font-size: 18px;	
+    line-height: 24px;
+}
+
+/* footer */
+.add_project_footer{
+    position: relative;
+    top:22px;
+    padding:0;
+    /* top:-115px   if you want to keep whole content on single page  scrolling */    
+}
+.add_project_footer_content{
+    float:right;
+    display: flex;
+}
+.next_wrapper{
+    margin-left:10px;
+}
+.footer_button{
+    height: 38px;	
+    width: 120px;	
+    border-radius: 4px;	
+    border: none;
+}
+.cancel_button{
+    background-color: #909090;
+}
+.next_button{
+    background-color: #FF9801;
+}
+.footer_text{
+    color: #FFFFFF;	
+    font-family: "Roboto Slab-Bold";	
+    font-size: 13px;		
+    line-height: 18px;	
+    position: relative;
+    top:-2px;
+}
+/* datalist {
+	/* display: none; */
+/* }  */
+
+input::-webkit-calendar-picker-indicator {
+	display: none;
+}
+::ng-deep datalist {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1ps solid red;
+ }
+
+ .client_droplist_prime{
+     width:100%;
+     height: 24px;
+    /* overflow: hidden; */
+    background: no-repeat #ffffff;
+    background-image:url("../../../../../assets/images/BlueIcons/icons8-down-button-40.png");
+    background-size: 20px 20px;
+    background-position:right bottom;
+ }
+ 
+
+/* contact person text box */
+.contact_textbox{
+    height: 24px;	
+    width: 100%;	
+    /* color: #9B9B9B;	 */
+    color:#4A4A4A;
+    font-family: "Roboto Slab";	
+    font-size: 15px;	
+    line-height: 24px;
+    border: none;
+}
+/* description */
+textarea {
+    font-size:11px;
+    height: 30px;
+    width: 100%;
+    font-family: "Roboto Slab";	  
+    color: #4A4A4A;  
+}
+.uploadfile_wrapper{
+    font-family: "Roboto Slab";	        
+    font-size: 12px;
+    color: #4A4A4A;
+}
+/* siteaddress */
+.siteaddress_text{
+    border:1px solid #a9a9a9;
+    border:none;
+    height:28px; /*Updated by Amol for Address Line*/
+    /* height:100px; */
+    overflow:auto;/*Added by Amol to remove Scroll bar*/
+    width:100%;
+    font-size:15px;
+    font-family: "Roboto Slab";	    
+    color: #4A4A4A;    
+}
+.siteaddress_text2{
+    border:1px solid #a9a9a9;
+    height:100px;
+    width:100%;
+    font-size:18px;
+    font-family: "Roboto Slab";	    
+    color: #4A4A4A;    
+}
+
+.yellow_border1{
+    width:74%;
+    padding-top:10px;
+    border-bottom: 1px solid #FF9801;
+    padding-left:10px;
+}
+input{
+    font-family: "Roboto Slab";    
+}
+.advance_project_block{
+    /* padding: 10px 10px 5px 10px; */
+    /* height: 76px; */
+    width: 100%;
+    border-bottom: 1px solid #D3D3D3;
+}
+.advance_head{
+    color: #515151;
+    font-family: "Roboto Slab-Bold";
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 5px;
+}
+
+.subheading_class_advance10{
+    padding-left:10px !important;
+}
+.subheading_class_advance20{
+    padding-left:20px !important;
+}
+.advance_space{
+    padding: 10px 10px 5px 20px;    
+}
+.advance_head_span{
+    padding-left:5px;
+}
+.advance_color_head{
+    /* color:#54ad58; */
+    /* position: relative; */
+    /* top:20px; */
+    color:#14bace;
+    font-size:14px !important;
+}
+.advance_client_text_class{
+    padding-left:3px;
+}
+.project_half_block_advance{
+     padding: 16px 10px 0px 10px;
+    min-height: 76px;
+    width: 85%;
+    border-bottom: 1px solid #D3D3D3;
+}
+.rightclass{
+    width:85%;
+    float:right;
+}
+.rightspaceclass{
+    margin-right:25px;
+}
+/* .three_relative_class{
+    position: relative;
+    left:3px;
+} */
+.upperspace{
+    padding-top:15px;
+}
+.advance_space_11{
+    color: #515151;
+    font-family: "Roboto Slab-Bold";
+    font-size: 15px;
+    letter-spacing: 0.05px;
+    line-height: 27px;
+    /* padding-left: 15px; */
+    padding-top: 10px;
+}
+.client_contact_remove{
+    float:right;
+}
+.no_of_files{
+    padding:5px;
+    font-family: "Roboto Slab";	    
+    color: #4A4A4A;
+    font-size:18px;
+}
+.abCLass{
+    top: 26px;
+    right: 9px;
+    position: absolute;
+}
+.abCLass2{
+    top: 9px;
+    right: 9px;
+    position: absolute;
+}
+.fa-trash:before {
+    color: #98ccfd;
+    content: "\f1f8";
+}
+.client_contact_remove1{
+    position: absolute;
+    right: -13px;
+}
+.client_name_head_text1{
+    color: #515151;
+    font-family: "Roboto Slab-Bold";
+    font-size: 12px;
+}
+.greenClass{
+    margin-top: 10px;
+    color: green !important;
+    /* color: green; */
+    color: #515151;
+    font-family: "Roboto Slab-Bold";
+    font-size: 12px;
+}
+.orangeclass{
+    background-color: #FF9801;
+    border:none;
+}
+.silverclass{
+    border:none;    
+    background-color: #909090;
+}
+button:disabled,
+button[disabled]{
+  background-color: #ff9801d4;
+  opacity: 0.66;
+}
+.pop_open_close_wraper{
+    padding:20px;
+    text-align:center;
+}
+.pop_button_orange{
+    background: #FF9801;
+}
+.pop_open_close_bottom{
+    padding-bottom:20px;
+    color: #515151;	
+    font-family: "Roboto Slab-Bold";	
+    font-size: 15px;	
+}
+.pop_button{
+    height: 37px;
+    width: 110px;
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    font-family: "Roboto Slab-Bold";
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+}
+.logoFloat{
+    font-size: 10px;
+    position: absolute;
+    top: 28px;
+    right: 0px;
+}
+.blueborder{
+    width: 25%;
+    padding-top: 10px;
+    border-bottom: 1px solid #D3D3D3;
+}
+.container{
+    padding:20px;
+}
+
+.btnClass{
+    text-align: center;
+}
+/* file label */
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	/* position: absolute; */
+	z-index: -1;
+}
+.client_plus_class{
+    position: absolute;
+    right: -30px;
+    top: 38px;
+}
+.plusimgclass{
+width:20px;
+height:20px;
+}
+/* tooltip */
+:host >>> .ui-tooltip-text{
+    font-size:12px !important;
+    white-space:pre-wrap;
+}
+:host >>> .ui-tooltip{
+    pointer-events: none !important;
+}
+/* rohit new autocomplete dropdown */
+:host >>> .ui-dropdown input.ui-dropdown-label:hover {
+    background: transparent;
+}
+:host >>> .ui-inputtext:enabled:hover {
+    border-color: transparent;
+    background: transparent;
+}
+:host >>> .ui-autocomplete-dd input.ui-corner-all{
+    /* font-size:15px; */
+    /* font-size: 1em; */
+    color: #4A4A4A;	
+    font-family: "Roboto Slab";
+    border: none;
+    background: transparent;
+    height: 24px;
+}
+ :host >>> .ui-widget.ui-button, .ui-button{
+    background: transparent;
+    color: transparent;
+    border: none;
+}
+:host >>> .ui-widget.ui-button, .ui-button:hover{
+    background: transparent !important;
+    color: transparent !important;
+    border:none !important;
+} 
+:host >>> .ui-button-icon-only .ui-button-text, .ui-button-text-empty .ui-button-text {
+    height: 24px;
+}
+
+/* rohit new dropdown code */
+:host >>> .ui-dropdown {
+    font-size:15px;
+    /* font-size: 1em; */
+	background: transparent;
+    border: none;
+    height:24px;
+	}
+:host >>> .ui-dropdown .ui-dropdown-trigger {
+    background: transparent;
+    border: none;
+	}
+:host >>> .ui-dropdown .ui-dropdown-label {
+    color: #4A4A4A;
+    font-family: "Roboto Slab";
+    font-size:15px;
+    background: transparent;
+    height: 24px;
+    cursor: pointer;
+    padding: 0;
+    padding-left: 5px;
+	}
+:host >>> .pi-caret-down:before {
+    display:none
+	}
+:host >>> .ui-dropdown.ui-state-focus{
+    box-shadow: 0px 0px 0px !important;    
+	}
+:host >>> .btn:focus {
+    outline: 0;
+    box-shadow: none;
+    }
+:host >>> .ui-dropdown:hover{
+    background: transparent;
+    }
+:host >>> .ui-dropdown-panel .ui-dropdown-item {
+    background: transparent;
+    font-family: "Roboto Slab";
+    font-size: 18px;
+    color: #4A4A4A;
+    padding:0;
+}
+
+/* rohit calender */
+:host >>> .ui-calendar.ui-calendar-w-btn input {
+    height:24px;
+    border:none;
+}
+/* dialog box */
+:host >>> .ui-dialog.ui-widget .ui-dialog-titlebar{
+    padding:0 !important;
+    background: #F9F9F9;    
+}
+:host >>> .pi-times:before {
+    content: none;
+}
+:host >>> .ui-dialog.ui-widget .ui-dialog-content{
+    padding:0 !important;
+}
+:host >>> .p-dialog .ui-dialog {
+    overflow: scroll;
+    max-height: 100%;
+  }
+/* media query */
+
+@media (min-width:1440px){
+    .project_full_block{
+        padding: 20px 10px 5px 4px;
+    }
+    .project_half_block_description{
+        padding: 17px 10px 5px 9px;
+    }
+}
+
+@media (max-width:1264px){
+    
+    .uploadfile_wrapper{
+        font-size:11px;
+    } 
+    .project_input_box{
+        font-size:17px;
+    }  
+    
+    .rightspaceclass{
+        margin-right:15px;
+    }
+    .three_relative_class{
+        position: relative;
+        left:5px;
+    } 
+}
+@media (max-width:1194px){
+    
+    .uploadfile_wrapper{
+        font-size:10px;
+    }    
+}
+
+@media (max-width:1076px){
+   
+    .uploadfile_wrapper{
+        font-size:9.5px;
+    }
+}
+@media (max-width:1026px){
+    
+    .client_name_head_text{
+        font-size: 12px;
+    }    
+   
+    .project_half_block_description{
+        padding: 18px 10px 5px 13px;
+    }
+}
+
+@media (max-width:982px){
+    
+    .uploadfile_wrapper{
+        font-size:12px;
+    }   
+    
+    /* Added by Amol */
+    .mobile{
+        display: inline;
+        /* width:80%; */
+    }
+    .deleteICONCSD{
+        display: inline;
+        /* float: left; */
+        /* width:20% */
+    }
+    /* Added by Amol */
+}
+ 
+@media (max-width:940px){
+    .uploadfile_wrapper{
+        font-size:11px;
+    } 
+       /* Added by Amol */
+       .mobile{
+        display: inline;
+        /* width:80%; */
+    }
+    .deleteICONCSD{
+        display: inline;
+        /* float: left; */
+        /* width:20% */
+    }
+    /* Added by Amol */
+}
+ @media (max-width:863px){
+    .uploadfile_wrapper{
+        font-size:9.5px;
+    } 
+    .project_half_block_description{
+        padding: 19px 10px 5px 17px;
+    }
+       /* Added by Amol */
+       .mobile{
+        display: inline;
+        /* width:80%; */
+    }
+    .deleteICONCSD{
+        display: inline;
+        /* float: left; */
+        /* width:20% */
+    }
+    /* Added by Amol */
+}
+ @media (max-width:767px){
+    .project_half_block_right{
+        float: left;
+    }
+    .project_full_block{
+        float: left;
+        padding: 14px 10px 5px 10px;
+    }
+    .project_middle_block{
+        margin:0;
+    }
+    .add_project_footer_content{
+        padding-right: 10px;
+    }
+    .project_half_block_description{
+        padding: 19px 10px 5px 10px;
+    }
+    .uploadfile_wrapper{
+        font-size:12.5px;
+    }
+    .breadcrum_wrapper{
+        font-size: 10px;
+    }
+    /*Added by Amol*/
+    .paddingleft{
+        padding-left: 0px !important;
+    }
+    /*Added by Amol*/
+       /* Added by Amol */
+       .mobile{
+        display: inline;
+        /* width:80%; */
+    }
+    .deleteICONCSD{
+        display: inline;
+        /* float: left; */
+        /* width:20% */
+    }
+    /* Added by Amol */
+
+}
+@media (max-width:425px){
+    /*Added by Amol*/
+    .paddingleft{
+        padding-left: 0px !important;
+    }
+    /*Added by Amol*/
+       /* Added by Amol */
+       .mobile{
+        display: inline;
+        /* width:80%; */
+    }
+    .deleteICONCSD{
+        display: inline;
+        /* float: left; */
+        /* width:20% */
+    }
+    /* Added by Amol */
+
+    
+}
+@media (max-width:375px){
+    /*Added by Amol*/
+    .paddingleft{
+        padding-left: 0px !important;
+    }
+    /*Added by Amol*/
+       /* Added by Amol */
+       .mobile{
+        display: inline;
+        /* width:80%; */
+    }
+    .deleteICONCSD{
+        display: inline;
+        /* float: left; */
+        /* width:20% */
+    }
+    /* Added by Amol */
+
+} 
+@media (max-width:320px){
+    .project_input_box{
+        font-size: 15px;
+    }
+    /*Added by Amol*/
+    .paddingleft{
+        padding-left: 0px !important;
+    }
+    /*Added by Amol*/
+       /* Added by Amol */
+       .mobile{
+        display: inline;
+        /* width:80%; */
+    }
+    .deleteICONCSD{
+        display: inline;
+        /* float: left; */
+        /* width:20% */
+    }
+    /* Added by Amol */
+
+    
+}
+
+

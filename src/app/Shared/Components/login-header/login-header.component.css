@@ -1,0 +1,179 @@
+.container-fluid, .row{
+    padding:0;
+    margin:0;
+}
+.startingcolumn{
+    padding:0;
+    margin:0;
+}
+.nopadding{
+    padding: 0px;
+}
+/* //header */
+.header{
+    height: 232px;
+    padding:20px 34px 16px 34px;
+    background: linear-gradient(90deg, #FF9802 0%, #FFD23E 100%);
+}
+.header_images{
+    width:20px;
+    height:20.84px;
+}
+.flipspace_wrapper{
+    display: flex;
+}
+.right_wrapper{
+    float:right;
+}
+.images_wrapper{
+    display: inline-block;
+    padding-right:20px;
+    color: #FFFFFF;
+}
+.personname{
+    height: 17px;
+    /* width: 110px;	 */
+    color: #FFFFFF;	
+    font-family: Helvetica;	
+    font-size: 14px;	
+    font-weight: bold;	
+    letter-spacing: 0.04px;	
+    line-height: 17px;	
+    text-align: center;
+    padding:0;
+    padding-right:15px;
+}
+.personimage{
+    padding:0;
+}
+.left_title_block{
+    width:166.54px;
+    font-size: 29.01px;
+    color:#FFFFFF;
+    font-family:Helvetica;
+    font-weight:600; 
+}
+.title{
+    margin-bottom:37.51px;
+}
+.title1{
+    position: absolute;
+    right: 62px;
+    font-size: 33px;
+    color: white;
+    top: 3px;
+    font-family:Helvetica;
+    font-weight:600; 
+}
+/* --------------------------------------- */
+.dropbtn {
+    cursor: pointer;
+    /* background-color: #ffcc37; */
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    font-family: Helvetica;
+    font-size: 14px;
+    font-weight: bold;
+    background: transparent;
+}
+button:focus{
+    outline:none;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+.dropdown-content {
+    background: linear-gradient(90deg, #ffc631 0%, #ffcf3b 100%);
+    display: none;
+    position: absolute;
+    /* background-color: #f1f1f1; */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-align: left;
+}
+
+.dropdown-content a {
+    /* color: black; */
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-size: 14px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #4de2ee;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+/* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+@media (max-width:900px){
+    .dropbtn {
+        cursor: pointer;
+        color: white;
+        padding: 4px;
+        font-size: 16px;
+        border: none;
+        font-family: Helvetica;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .left_title_block{
+        font-size: 23px;
+    }
+}
+@media (max-width:767px){
+    .header{
+        height: 74px;
+        padding: 5px 5px 5px 5px;
+    }
+    .logoclass{
+        width:30px;
+        height:20px;
+    }
+    .left_title_block{
+        width: 70px;
+        font-size: 11px;
+    }
+    .images_wrapper{
+        padding-right: 10px
+    }
+    .personname{
+        /* width: 48px; */
+        font-size: 8px;
+        padding-right:10px;
+    }
+    .man_image{
+        width:20px;
+        height:20px;
+        padding-right:0 !important;
+    }
+    .left_title_block{
+        font-size: 16px;
+    }
+
+}
+@media (max-width:375px){
+    .left_title_block{
+        font-size: 14px;
+    }
+}
+    
+@media (max-width:320px){
+    .header_images{
+        width: 15px;
+        height: 15px;
+    }
+    .images_wrapper{
+        padding-right: 7px;
+    }
+    .left_title_block{
+        font-size: 12px
+    }
+}

@@ -1,0 +1,14 @@
+
+<header *ngIf="showHead ; else loginHeader"></header>
+<ng-template #loginHeader>
+    <login-header></login-header>
+</ng-template>
+<!-- <project-page></project-page> -->
+<!-- <app-add-new-project-page></app-add-new-project-page> -->
+<!-- <loader></loader> -->
+<ng-http-loader backgroundColor="#ffa40e" z-index="999999" [spinner]="spinkit.skCubeGrid" ></ng-http-loader>
+<!-- <ng2-http-loader [color]="orange"></ng2-http-loader> -->
+<router-outlet></router-outlet>
+<app-error-popup></app-error-popup>
+<app-footer></app-footer>
+<!-- <create-estimate-page></create-estimate-page> -->

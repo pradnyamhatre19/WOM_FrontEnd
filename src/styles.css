@@ -1,0 +1,65 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@font-face {
+    font-family: 'Roboto Slab';
+    src: url('./assets/fonts/RobotoSlab-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Slab-Bold';
+    src: url('./assets/fonts/RobotoSlab-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.headingplusIcon {
+    display: inline-block !important;
+    padding-left: 5px !important;
+    padding-right: 10px !important;
+}
+.yellow_border{
+    width:25%;
+    padding-top:10px;
+    border-bottom: 1px solid #FF9801;
+}
+ /* @font-face {
+    font-family: 'RobotoSlab-Light';
+    src: url('/assets/fonts/RobotoSlab-Light.ttf');
+    font-weight: 400;
+    font-style: normal;
+} */
+
+/* @font-face {
+    font-family: 'RobotoSlab-Thin';
+    src: url('/assets/fonts/RobotoSlab-Thin.ttf');
+    font-weight: 100;
+    font-style: normal;
+} */
+#spinner{
+    z-index : 99999 !important;
+}
+.backendErrorClass{
+    color:#e62d08 !important;
+    font-size: 10px !important;
+    font-family: 'Roboto Slab-Bold' !important;
+}
+.headBold{
+    color: #515151;
+    font-family: "Roboto Slab-Bold";
+    font-size: 15px;
+}
+.cp{
+    cursor: pointer;
+}
+input[type=submit]:disabled,
+button:disabled {
+    cursor:not-allowed;
+}
+body{
+    font-family: 'Roboto Slab';
+    font-size: 18px;
+    background: #F6F6F6;
+}

@@ -1,0 +1,12 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    font-size: 12px;
+    /*background-color: #ffd13d;*/
+    background: linear-gradient(90deg, #FF9802 0%, #FFD23E 100%);
+    color: white;
+    text-align: center;
+ }

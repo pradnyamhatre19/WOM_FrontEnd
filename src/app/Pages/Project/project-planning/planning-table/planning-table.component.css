@@ -1,0 +1,374 @@
+.container-fluid, .row{
+    padding:0;
+    margin:0;
+}
+.startingcolumn{
+    padding:0;
+    margin:0;
+}
+
+/* right sided 4 buttons */
+.buttons_parent{
+    display: flex;
+    float:right;
+}
+.rightsidebuttons{
+    margin-left:10px;
+}
+.budgeting_wrapper{
+    text-align: center;
+}
+.budgeting{
+    height: 30px;	
+    width: 105px;	
+    border: 1px solid #D3D3D3;	
+    border-radius: 4px;	
+    background-color: #F9F9F9;
+    /* text-align: center; */
+}
+.color_budgeting{
+    height: 30px;	
+    width: 105px;	
+    border: 1px solid #4DE2EE;	
+    border-radius: 4px;	
+    background-color: #4DE2EE;
+}
+.rightsidebuttons_text{
+    font-family: "Roboto Slab";	
+    font-size: 13px;
+    color: #818181;
+    position: relative;
+    top:-1px;
+}
+.color_rightsidebuttons_text{
+    font-family: "Roboto Slab";	
+    font-size: 13px;
+    color: #FFFFFF;
+    position: relative;
+    top:-1px;
+}
+/* search box */
+.search_button_wrapper{
+    display: flex;
+    height: 30px;	
+    width: 386px;	
+    border: 1px solid #D3D3D3;	
+    border-radius: 4px;	
+    background-color: #F9F9F9;
+    padding-left:9px;
+    /* padding:6px 0px 6px 9px; */
+}
+.inputtextsearch{
+    height: 20px;	
+    width: 337px;	
+    color: #818181;	
+    font-family: "Roboto Slab";	
+    font-size: 13px;	
+    line-height: 18px;
+    padding-bottom:0 !important;
+    padding-top:0 !important;
+    border: none;
+    background-color: #F9F9F9;
+}
+.button_wrapper{
+    padding-left:10px;
+}
+.searchiconbutton{
+    width:20px;
+    height:20px;
+    padding:0px;
+    position: relative;
+    top:3px;
+    border: none;
+    /* background: #FFFFFF; */
+    background-color: #F9F9F9;
+}
+.search_image_icon{
+    position: relative;
+    top: -2px;
+    height: 20px;
+    width:20px;
+    background-color: #F9F9F9;    
+}
+
+/* ng-prime table color css */
+::ng-deep .ui-table .ui-table-thead>tr>th{
+    padding-left:10px;
+    padding-top:5px;
+    padding-bottom:13px;
+    border:none;
+    background: #FFFFFF;
+    word-wrap: break-word;
+    color: #515151;
+}
+
+::ng-deep .ui-table .ui-table-tbody > tr > td{
+    /* background: #F9F9F9; */
+    /* background: #FFFFFF; */
+    padding-left:10px;
+    padding-top:13px;
+    padding-bottom:13px;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:1px solid#D3D3D3;
+    word-wrap: break-word;
+    color: #515151;    
+}
+
+.some-custom-class-name::ng-deep th {
+    height: 18px;		
+    color: #515151;	
+    font-family: "Roboto Slab-Bold";	
+    font-size: 13px;	
+    line-height: 18px;
+    /* background: #FFFFFF;     */
+}
+.some-custom-class-name::ng-deep td{
+    height: 18px;	
+    color: #515151;	
+    font-family: "Roboto Slab";	
+    font-size: 13px;	
+    line-height: 18px;
+    /* background-color: #F9F9F9;     */
+    
+}
+
+/* for alterntaive row color change of the table */
+/* ::ng-deep .ui-table .ui-table-tbody > tr > td:nth-child(even) {background: red}
+::ng-deep .ui-table .ui-table-tbody > tr > td:nth-child(odd) {background:yellow} */
+::ng-deep .ui-table .ui-table-tbody > tr > td:first-child { font-family: "Roboto Slab-Bold";	}
+
+/* header */
+::ng-deep .ui-widget-header {
+    border: none;
+    background: #FFFFFF;
+}
+::ng-deep .ui-table-caption{
+    margin-top:0;
+    padding:0 0 20px 0;
+    background: #FFFFFF;
+}
+
+/* paginator */
+::ng-deep .ui-paginator .ui-paginator-page.ui-state-active{
+    /* height: 30px;	
+    width: 25px;	 */
+    border-radius: 4px;	
+    background-color: #4DE2EE;
+    border-color: #4DE2EE;
+}
+::ng-deep .ui-table .ui-paginator-bottom{
+    margin-top:30px;
+}
+
+/* click color change */
+button:focus, textarea:focus, select:focus, submit:focus {
+    outline-offset: 0px !important;
+    outline: none !important;
+}   
+:host >>> .ui-inputtext:focus{
+    box-shadow: 0px 0px 0px #ffffff !important;
+}
+/* alternate rows color change */
+:host >>> .ui-table .ui-table-tbody > tr {
+	background-color: #F9F9F9;
+}
+:host >>> .ui-table .ui-table-tbody > tr:nth-child(even){
+    background-color: #ffffff;
+}
+/* dialog box */
+::ng-deep .ui-dialog.ui-widget .ui-dialog-titlebar{
+    padding:0;
+    background: #F9F9F9;    
+}
+::ng-deep .pi-times:before {
+    content: none;
+}
+::ng-deep .ui-dialog.ui-widget .ui-dialog-content{
+    padding:0 !important;
+}
+/* budgeting dialog */
+.budgeting_dialog_wrapper{
+    padding:20px;
+    padding-bottom:27px;
+    background: #F9F9F9;
+}
+.budgeting_dialog_flex{
+    display: flex;
+}
+.budgeting_dialog_button{
+    height: 38px;
+    width: 120px;
+    border-radius: 4px;
+    border: none;
+}
+.budgeting_edit_class{
+    background-color: #FF9801;
+    margin-left: 6px;
+}
+.budgeting_cancel_class{
+    background-color: #909090;
+}
+.budgeting_dialog_button_text{
+    color: #FFFFFF;
+    font-family: "Roboto Slab-Bold";
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center
+}
+
+/* planning dialog box*/
+.planning_dialog_button{
+    height: 37px;
+    width: 180px;
+    border-radius: 4px;
+    border: none;
+}
+.planning_dialog_wrapper{
+    padding:20px;
+}
+.planning_bottom_space{
+    margin-bottom:20px;
+}
+.planning_orange{
+    background: #FF9801;         
+}
+.inside .budgeting{
+    background: red !important;
+}
+
+.display{
+    display: none;
+}
+.popupbtn{
+    color: #ffffff;
+    padding: 6px;
+    /* margin: 0px 10px; */
+    max-width: 100px;
+    width:80%;
+    margin-left:30px;
+}
+.orangeclass{
+    background-color: #FF9801;
+    border:none;
+}
+.silverclass{
+    border:none;    
+    background-color: #909090;
+}
+.padding_class{
+    padding-top:30px;
+}
+.pop_open_close_wraper{
+    padding:20px;
+}
+.pop_button{
+    height: 37px;
+    width: 110px;
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    font-family: "Roboto Slab-Bold";
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+}
+.pop_button_orange{
+    background: #FF9801;
+}
+.pop_open_close_bottom{
+    padding-bottom:20px;
+    color: #515151;	
+    font-family: "Roboto Slab-Bold";	
+    font-size: 15px;	
+}
+.ok_class{
+    text-align: center;
+}
+.redclass{
+    padding-left: 10px;
+    color:red;
+    font-family: "Roboto Slab-Bold";
+    font-size: 12px;
+}
+.popupbtn:active,
+.popupbtn:focus,
+.popupbtn.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+
+/* media query */
+@media (max-width:1200px){
+    .inputtextsearch {
+        width: 304px;
+       }
+       .budgeting{
+           width: 95px;
+       }
+       .rightsidebuttons_text{
+           font-size: 12px;
+       }
+       .search_button_wrapper{
+           width: 356px;
+       }
+}
+@media (max-width:1024px){
+    .inputtextsearch {
+        width: 291px;
+       }
+       .budgeting{
+           width: 85px;
+       }
+       .rightsidebuttons_text{
+           font-size: 12px;
+       }
+       .search_button_wrapper{
+           width: 340px;
+       }
+}
+@media (max-width:992px){
+    .inputtextsearch {
+        width: 252px;
+       }
+       .budgeting{
+           width: 72px;
+       }
+       .rightsidebuttons_text{
+           font-size: 10px;
+       }
+       .search_button_wrapper{
+           width: 300px;
+       }
+}
+
+@media (max-width:860px){
+    .inputtextsearch {
+     width: 215px;
+    }
+    .budgeting{
+        width: 62px;
+    }
+    .color_budgeting{
+        width: 62px;
+    }
+    .rightsidebuttons_text{
+        font-size: 8px;
+        top:-2px;
+    }
+    .color_rightsidebuttons_text{
+        font-size: 8px;
+        top:-2px;
+    }
+    .search_button_wrapper{
+        width: 265px;
+    }
+    .inputtextsearch{
+        font-size:11px;
+    }
+}
+

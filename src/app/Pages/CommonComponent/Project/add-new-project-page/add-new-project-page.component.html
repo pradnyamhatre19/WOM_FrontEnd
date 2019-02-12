@@ -1,0 +1,921 @@
+<!-- <header></header> -->
+<div class="container-fluid add_new_project_whole_wrapper" >
+  <div class="row">
+    <!-- breadcrum -->
+<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 add_new_project_padding_body">      
+    <div class="col-12 col-md-12 startingcolumn project">
+        <div class="row">
+          <div class="col-6 col-md-6 startingcolumn project_left">
+            <div class="project_text">
+              <span>Add New Project</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-6 startingcolumn project_right">
+            <div class="breadcrum_wrapper">
+              <span id="a">You are here:<span style="cursor:pointer;" routerLink="/Project/Budgeting">Projects</span> /Add New Projects</span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+    <!-- ends here -->
+    <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 new_project_wrapper">
+        <form [formGroup]="form">
+      <div class="row startingcolumn">  
+        <div class="col-12 col-md-12 startingcolumn new_pro_heading">
+          <span class="new_pro_heading_text">Please add details of the new Project</span>
+        </div>
+        <!-- firsthalf -->
+        <div class="col-12 col-md-6 startingcolumn">
+          <!-- client name -->
+          <div style="height:85px;">
+          <div class="col-12 col-md-12 startingcolumn project_half_block">
+            <span class="client_name_head_text">Client Name<sup class="redstar">*</sup></span>
+             <div class="ui-fluid">
+            <div class="drop_list_client_name">
+              <p-autoComplete 
+                                formControlName="clientName"
+                                [suggestions]="filteredclientName" 
+                                (completeMethod)="searchclientName($event)" field="label" dataKey="id"
+                                [size]="30"
+                                [minLength]="1" 
+                                placeholder="Search or Select" 
+                                [dropdown]="true"
+                                (onDropdownClick)="clientNamedropdown()"
+                                forceSelection="true"
+                                (onFocus)="onkeyDownAllFields()">
+                                </p-autoComplete>
+            </div>
+            </div>
+            <!-- new client plus button -->
+            <div class="client_plus_class">
+            <img class="plusimgclass cp" (click)="AddClient()" src="assets/images/BlueIcons/icons8-plus-40.png" data-toggle="tooltip" title="Add Client">
+            </div>
+              </div>  
+              <div class="alert alert-danger" *ngIf="clientName.touched && clientName.invalid">
+                <div  *ngIf="!!clientName.errors.required">Please Select the Project</div>
+            </div>
+          </div>
+        </div>
+        <!-- secondhalf -->
+        <div class="col-md-6 startingcolumn project_to_duplicate_wrapper">
+          <div style="height:85px;">
+          <div class="project_half_block project_half_block_right">
+            <span class="client_name_head_text">Project to Duplicate</span>
+            <div class="ui-fluid">
+            <div class="drop_list_client_name">
+              <p-autoComplete 
+        formControlName="duplicateProject"
+        [suggestions]="filteredduplicateProject" 
+        (completeMethod)="searchduplicateProject($event)" field="label" dataKey="id"
+        [size]="30"
+        [minLength]="1" 
+        placeholder="Search or Select" 
+        [dropdown]="true"
+        (onDropdownClick)="duplicateProjectdropdown()"
+        forceSelection="true"
+        [disabled]="disableProjectToDuplicate"
+        (onFocus)="onkeyDownAllFields()">
+        </p-autoComplete>
+                </div>
+                </div>
+          </div>
+        </div>
+        </div>
+        <!-- start and end date -->
+<div class="col-md-6 startingcolumn startdate_wrapper project_to_duplicate_wrapper"> 
+    <div style="height:85px;">
+    <div class="start_date_block project_half_block">
+        <span class="client_name_head_text">Start Date</span>
+        <div class="ui-fluid">
+        <div class="date_wrapper">
+            <p-calendar formControlName="Date3" [showIcon]="true"
+             placeholder="Select" dateFormat="dd.mm.yy" 
+             (onFocus)="onkeyDownAllFields()" (onSelect)="setEndDateEmpty()"></p-calendar>                     
+        </div>
+        </div>
+    </div>
+    </div>
+  </div>
+  <div class="col-md-6 startingcolumn enddate_wrapper project_to_duplicate_wrapper">
+      <div style="height:85px;">
+      <div class="end_date_block project_half_block project_half_block_right">
+          <span class="client_name_head_text">End Date</span>
+        <div class="ui-fluid">
+          <div class="date_wrapper">
+            <p-calendar formControlName="Date4" [showIcon]="true" [minDate]="minDateValue"
+            placeholder="Select" dateFormat="dd.mm.yy"
+            (onFocus)="onkeyDownAllFields()"></p-calendar>
+          </div>  
+          </div>          
+      </div>
+      </div>
+  </div> 
+  <!-- date ends here-->
+ <!-- iNITIAL data -->
+ <div class="col-md-12 startingcolumn clientheading_wrapper">
+    <div class="yellow_border">
+      <span class="new_pro_heading_text">Initial Data</span>
+    </div>      
+</div>
+<!--advance Name of site-->
+<div class="col-md-6 startingcolumn project_to_duplicate_wrapper">
+    <div style="height:85px;">
+    <div class="project_half_block">
+      <span class="client_name_head_text">Name of Site<sup class="redstar">*</sup></span>
+        <div class="contact_person_text_wrapper">
+          <input type="text" formControlName="siteName" class="contact_textbox" placeholder="Enter" minlength="3"
+          (keydown)="onkeyDownAllFields()" (focus)="focusProjectName()">
+        </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="siteName.touched && siteName.invalid">
+      <div  *ngIf="!!siteName.errors.required">Please Enter name.</div>
+      <div  *ngIf="!!siteName.errors.minlength">Name Should be greater than 3 Character.</div>
+   </div>
+   </div>
+  </div>
+      <!-- <div class="col-md-6 startingcolumn project_to_duplicate_wrapper">
+      </div> -->
+      <div class="col-md-6 startingcolumn project_to_duplicate_wrapper">
+          <div style="height:85px;">
+              <div class="project_half_block project_half_block_right">
+                  <span class="client_name_head_text">Project Type<sup class="redstar">*</sup></span>
+             <div class="ui-fluid">
+                  <div class="drop_list_client_name">
+                    <p-autoComplete 
+                    formControlName="Project"
+                    [suggestions]="filteredprojecttype" 
+                    (completeMethod)="searchprojecttype($event)" field="label" dataKey="id"
+                    [size]="30"
+                    [minLength]="1" 
+                    placeholder="Search or Select" 
+                    [dropdown]="true"
+                    (onDropdownClick)="projecttypedropdown()"
+                    forceSelection="true"
+                    (onFocus)="onkeyDownAllFields()">
+                    </p-autoComplete>
+                      </div>
+                      </div>
+              </div>
+              <div class="alert alert-danger paddingleft" *ngIf="Project.touched && Project.invalid">
+                  <div  *ngIf="!!Project.errors.required">Please Enter Project Type.</div>
+               </div>
+            </div>
+        </div>
+        <div class="col-md-6 startingcolumn project_to_duplicate_wrapper">
+            <div style="height:85px;">
+            <div class="project_half_block_advance project_half_block_left">
+              <span class="client_name_head_text">Address Line 1<sup class="redstar">*</sup></span>
+              <div class="siteaddress_wrapper">
+                <input 
+                type="text" 
+                required
+                maxlength="60"
+                minlength="3"
+                class="siteaddress_text" 
+                formControlName="addressLine1" 
+                placeholder="Enter Site Address here..." (keydown)="onkeyDownAllFields()" />
+              </div>            
+            </div>
+            <!-- error -->
+            <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
+              <div  *ngIf="!!addressLine1.errors.required">Please Enter Address.</div>
+              <div  *ngIf="!!addressLine1.errors.minlength">Address Should be more than 3 Character.</div>
+           </div>
+          </div>
+          </div>
+          <div class="col-md-6 startingcolumn project_to_duplicate_wrapper">
+            <div style="height:85px;">
+            <div class="project_half_block_advance project_half_block_right">
+              <span class="client_name_head_text">Address Line 2<sup class="redstar">*</sup></span>
+              <div class="siteaddress_wrapper">
+                <input type="text" 
+                required
+                maxlength="60"
+                class="siteaddress_text" 
+                formControlName="addressLine2" 
+                placeholder="Enter Site Address here..." (keydown)="onkeyDownAllFields()"/>
+            </div>            
+            </div>
+            <!-- error -->
+            <div class="alert alert-danger paddingleft" *ngIf="addressLine2.touched && addressLine2.invalid">
+              <div  *ngIf="!!addressLine2.errors.required">Please Enter Address.</div>
+              <div  *ngIf="!!addressLine2.errors.minlength">Address Should be more than 3 Character.</div>
+           </div>
+            </div>
+          </div>
+            <div class="col-md-4 startingcolumn project_to_duplicate_wrapper rightspaceclass">
+              <div style="height:85px;">  
+                <div class="project_half_block1">
+                  <span class="client_name_head_text">State<sup class="redstar">*</sup></span>
+             <div class="ui-fluid">
+                  <div class="drop_list_client_name">
+                    <p-autoComplete 
+                    formControlName="initialState"
+                    [suggestions]="filteredinitialState" 
+                    (completeMethod)="searchinitialState($event)" field="label" dataKey="id"
+                    [size]="30"
+                    [minLength]="1" 
+                    placeholder="Search or Select" 
+                    [dropdown]="true"
+                    (onDropdownClick)="initialStatedropdown()"
+                    forceSelection="true"
+                    (onSelect)="showcity($event)"
+                    (onFocus)="onkeyDownAllFields()">
+                    </p-autoComplete>
+                      </div>
+                      </div>
+                </div> 
+                <div class="alert alert-danger" *ngIf="initialState.touched && initialState.invalid">
+                    <div  *ngIf="!!initialState.errors.required">Please select State.</div>
+                 </div>
+                </div>
+              </div>
+              <div class="col-md-4 startingcolumn project_to_duplicate_wrapper rightspaceclass">
+                <div style="height:85px;">  
+                  <div class="project_half_block1">
+                    <span class="client_name_head_text">City<sup class="redstar">*</sup></span>
+             <div class="ui-fluid">
+                    <div class="drop_list_client_name">
+                      <p-autoComplete 
+                      formControlName="initialCity"
+                      [suggestions]="filteredinitialCity" 
+                      (completeMethod)="searchinitialCity($event)" field="label" dataKey="id"
+                      [size]="30"
+                      [minLength]="1" 
+                      placeholder="Search or Select" 
+                      [dropdown]="true"
+                      (onDropdownClick)="initialCitydropdown()"
+                      forceSelection="true"
+                      (onFocus)="onkeyDownAllFields()">
+                      </p-autoComplete>
+                        </div>
+                        </div>
+                  </div> 
+                  <div class="alert alert-danger" *ngIf="initialCity.touched && initialCity.invalid">
+                      <div  *ngIf="!!initialCity.errors.required">Please Select City.</div>
+                   </div>
+                  </div>
+                </div>
+              <div class="col-md-3 startingcolumn project_to_duplicate_wrapper three_relative_class">
+                <div class="project_half_block1 project_half_block_right">
+                  <span class="client_name_head_text">Pincode</span>
+                    <div class="contact_person_text_wrapper">
+                      <input type="text" formControlName="initialPincode" class="contact_textbox" placeholder="Enter Pincode" maxlength="6"
+                      (keydown)="onkeyDownAllFields()">
+                    </div>
+                </div>
+                <div class="alert alert-danger" *ngIf="initialPincode.touched && initialPincode.invalid">
+                  <div  *ngIf="!!initialPincode.errors.pattern">Please enter valid pincode.</div>
+               </div>
+              </div>                
+       <!--advance  sales manager -->
+    <div class="col-md-6 startingcolumn project_to_duplicate_wrapper">
+      <div class="project_half_block project_half_block_left">
+        <span class="client_name_head_text">Sales Manager</span>
+        <div class="ui-fluid">
+        <div class="drop_list_client_name">
+          <p-autoComplete 
+          formControlName="salesManager"
+          [suggestions]="filteredsalesManager" 
+          (completeMethod)="searchsalesManager($event)" field="label" dataKey="id"
+          [size]="30"
+          [minLength]="1" 
+          placeholder="Search or Select" 
+          [dropdown]="true"
+          (onDropdownClick)="salesManagerdropdown()"
+          forceSelection="true"
+          (onFocus)="onkeyDownAllFields()">
+          </p-autoComplete>
+            </div>
+            </div>
+      </div>
+  </div>
+  <!-- advance sq ft-->
+  <div class="col-md-6 startingcolumn project_to_duplicate_wrapper">
+    <div class="project_half_block project_half_block_right">
+      <span class="client_name_head_text">Carpet Area (SQFT)<sup class="redstar">*</sup></span>
+          <div class="contact_person_text_wrapper">
+            <input type="text" formControlName="sqFt" class="contact_textbox" placeholder="Enter" 
+            (keydown)="onkeyDownAllFields()" [value]="this.form.get('sqFt').value | newcurrency">
+          </div>
+    </div>
+    <div class="alert alert-danger paddingleft" *ngIf="sqFt.touched && sqFt.invalid">
+      <div  *ngIf="!!sqFt.errors.required">Please Enter the Area</div>
+      <div  *ngIf="!!sqFt?.errors.pattern">Please Enter valid number</div>
+  </div>
+  </div>
+   <!--advance Project Type-->
+<div class="col-md-6 startingcolumn project_to_duplicate_wrapper">
+  <div style="height:85px;">
+  <div class="project_half_block project_half_block_left">
+    <span class="client_name_head_text">Built Up Area (SQFT)<sup class="redstar">*</sup></span>
+    <div class="drop_list_client_name">
+        <div class="contact_person_text_wrapper">
+            <input type="text" formControlName="builtupsqFt" class="contact_textbox" placeholder="Enter"
+            (keydown)="onkeyDownAllFields()"  [value]="this.form.get('builtupsqFt').value | newcurrency">
+          </div>
+        </div>
+  </div>
+  <div class="alert alert-danger" *ngIf="builtupsqFt.touched && builtupsqFt.invalid">
+      <div  *ngIf="!!builtupsqFt.errors.required">Please Enter the Area</div>
+      <div  *ngIf="!!builtupsqFt?.errors.pattern">Please Enter valid number</div>
+   </div>
+</div>  
+</div>
+  <!-- advance Tentative Value of project upto 2 decimals are allowed for value-->
+  <div class="col-md-6 startingcolumn project_to_duplicate_wrapper">
+    <div class="project_half_block project_half_block_right">
+      <span class="client_name_head_text">Tentative Value of Project</span>
+      <div class="contact_person_text_wrapper">
+        <!-- <input type="text" formControlName="tentValProj" class="contact_textbox" placeholder="Enter" 
+        (keydown)="onkeyDownAllFields()" [value]="this.form.get('tentValProj').value | currency : 'INR' : 'symbol': '1.0-0' : 'en-IN'"> -->
+        <input type="text" formControlName="tentValProj" class="contact_textbox" placeholder="Enter" 
+        (keydown)="onkeyDownAllFields()" [value]="this.form.get('tentValProj').value | newcurrency">
+      </div>
+    </div>
+    <div class="alert alert-danger paddingleft" *ngIf="tentValProj.touched && tentValProj.invalid">
+      <div  *ngIf="!!tentValProj?.errors.pattern">Please Enter valid number</div>
+  </div>
+    </div>
+  <!-- Team Data -->
+  <div class="col-md-12 startingcolumn clientheading_wrapper">
+      <div class="row">
+        <div class="col-md-4 startingcolumn advance_space_11">
+          <div class="yellow_border1">
+            <span>Team Data</span>
+          </div>
+        </div>
+        <div class="col-md-4 startingcolumn advance_space">
+        </div>    
+        <div class="col-md-4 startingcolumn advance_space">
+          <div class="advance_project_block">
+            <div class="advance_head">
+              <span class="advance_head_span">SBU Name<sup class="redstar">*</sup></span>        
+            </div>
+            <div class="ui-fluid">
+            <div class="drop_list_client_name dropdownlabel">
+              <!-- dropdown -->
+            <p-dropdown [options]="sbu_data_options" 
+            formControlName="sbuname"
+            placeholder="Select"
+            optionLabel="label"
+            dataKey="value"             
+            [showClear]="false"
+            (onChange)="sbuDropdownSelected($event)"
+            (onFocus)="onkeyDownAllFields()"
+            [autoWidth]="false">
+          </p-dropdown>
+            </div>
+            </div>
+        </div>
+        </div>    
+      </div>
+  </div>
+  <!-- design team -->
+  <div class="col-md-4 startingcolumn subheading_class_advance10 advance_space">
+    <div class="advance_project_block">
+      <div class="advance_head">
+        <span class="advance_head_span">Design Team</span>        
+      </div>
+  </div>
+  </div>
+  <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space">
+      <div class="advance_project_block">
+          <div class="advance_head">
+            <span class="advance_head_span">Member</span>        
+          </div>
+          <div class="ui-fluid">
+          <div class="drop_list_client_name">
+            <!-- dropdown -->
+            <p-dropdown [options]="design_team_member_data"
+            formControlName="viewDesignMemberAction1"
+            placeholder="Select"
+            optionLabel="label"
+            dataKey="value" 
+            [showClear]="false"
+            (onFocus)="onkeyDownAllFields()"
+            [autoWidth]="false">
+          </p-dropdown>
+          </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space">
+      <div class="advance_project_block">
+          <div class="advance_head">
+            <span class="advance_head_span">Designation</span>        
+          </div>
+          <div class="ui-fluid">
+          <div class="drop_list_client_name">
+              <!-- dropdown -->
+              <p-dropdown [options]="design_team_designation_data" #dp
+              formControlName="viewDesignDesignationAction1"
+              placeholder="Select" 
+              optionLabel="label"
+              dataKey="value" 
+              [showClear]="false"
+              (onFocus)="onkeyDownAllFields()"
+              [autoWidth]="false">
+            </p-dropdown>
+            </div> 
+            </div> 
+      </div>
+  </div>
+  <!-- procurement team -->
+  <div class="col-md-4 startingcolumn subheading_class_advance10 advance_space">
+    <div class="advance_project_block">
+      <div class="advance_head">
+        <span class="advance_head_span">Procurement Team</span>        
+      </div>
+  </div>
+    </div>
+    <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space">
+        <div class="advance_project_block">
+            <div class="advance_head">
+              <span class="advance_head_span">Member</span>        
+            </div>
+            <div class="ui-fluid">
+            <div class="drop_list_client_name">
+              <!-- dropdown -->
+              <p-dropdown [options]="procurement_team_member_data" #dm
+              formControlName="viewDesignMemberAction2"
+              placeholder="Select" 
+              optionLabel="label"
+              dataKey="value"
+              [showClear]="false"
+              (onFocus)="onkeyDownAllFields()"
+              [autoWidth]="false">
+            </p-dropdown>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space">
+        <div class="advance_project_block">
+            <div class="advance_head">
+              <span class="advance_head_span">Designation</span>        
+            </div>
+            <div class="ui-fluid">
+            <div class="drop_list_client_name">
+                <!-- dropdown -->
+                <p-dropdown [options]="procurement_team_designation_data" #dp
+                formControlName="viewDesignDesignationAction2"
+                placeholder="Select" 
+                optionLabel="label"
+                dataKey="value" 
+                [showClear]="false"
+                (onFocus)="onkeyDownAllFields()"
+                [autoWidth]="false">
+              </p-dropdown>
+              </div>  
+              </div>
+        </div>
+    </div>
+    <!-- key account manager--> 
+    <div class="col-md-4 startingcolumn subheading_class_advance10 advance_space">
+      <div class="advance_project_block">
+        <div class="advance_head">
+          <span class="advance_head_span">Key Account Team</span>        
+        </div>
+    </div>
+      </div>
+      <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space">
+          <div class="advance_project_block">
+              <div class="advance_head">
+                <span class="advance_head_span">Member</span>        
+              </div>
+            <div class="ui-fluid">
+              <div class="drop_list_client_name">
+                <!-- dropdown -->
+                <p-dropdown [options]="kam_team_member_data" #dm
+                formControlName="viewDesignMemberAction3"
+                placeholder="Select" 
+                optionLabel="label"
+                dataKey="value" 
+                [showClear]="false"
+                (onFocus)="onkeyDownAllFields()"
+                [autoWidth]="false">
+              </p-dropdown>
+              </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space">
+          <div class="advance_project_block">
+              <div class="advance_head">
+                <span class="advance_head_span">Designation</span>        
+              </div>
+            <div class="ui-fluid">
+              <div class="drop_list_client_name">
+                  <!-- dropdown -->
+                <p-dropdown [options]="kam_team_designation_data" #dm
+                formControlName="viewDesignDesignationAction3"
+                placeholder="Select" 
+                optionLabel="label"
+                dataKey="value" 
+                [showClear]="false"
+                (onFocus)="onkeyDownAllFields()"
+                [autoWidth]="false">
+              </p-dropdown>
+                </div>  
+                </div>
+          </div>
+      </div>
+      <!-- project management team -->
+      <div class="col-md-4 startingcolumn subheading_class_advance10 advance_space">
+        <div class="advance_project_block">
+          <div class="advance_head">
+            <span class="advance_head_span">Project Management Team</span>        
+          </div>
+      </div>
+        </div>
+        <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space">
+            <div class="advance_project_block">
+                <div class="advance_head">
+                  <span class="advance_head_span">Member</span>        
+                </div>
+            <div class="ui-fluid">
+                <div class="drop_list_client_name">
+                  <!-- dropdown -->
+                  <p-dropdown [options]="projectmanager_team_member_data" #dm
+                  formControlName="viewDesignMemberAction4"
+                  placeholder="Select" 
+                  optionLabel="label"
+                  dataKey="value" 
+                  [showClear]="false"
+                  (onFocus)="onkeyDownAllFields()"
+                  [autoWidth]="false">
+                </p-dropdown>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space">
+            <div class="advance_project_block">
+                <div class="advance_head">
+                  <span class="advance_head_span">Designation</span>        
+                </div>
+            <div class="ui-fluid">
+                <div class="drop_list_client_name">
+                    <!-- dropdown -->
+                    <p-dropdown [options]="projectmanager_team_designation_data" #dp
+                    formControlName="viewDesignDesignationAction4"
+                    placeholder="Select" 
+                    optionLabel="label"
+                    dataKey="value" 
+                    [showClear]="false"
+                    (onFocus)="onkeyDownAllFields()"
+                    [autoWidth]="false">
+                  </p-dropdown>
+                  </div>  
+                  </div>
+            </div>
+        </div>
+    <!-- created by Amol for testing purpose -->
+    <div class="col-md-12 startingcolumn clientheading_wrapper upperspace">
+        <div class="yellow_border">
+        <span class="new_pro_heading_text">Client Side Data</span>
+        </div>
+    </div>
+    
+    <!-- firsthalf -->
+  <div class="col-12 col-md-6 startingcolumn">
+    <!-- client name -->
+    <div style="height:85px;">
+    <div class="col-12 col-md-12 startingcolumn project_half_block">
+      <span class="client_name_head_text">BOQ Addressed Name<sup class="redstar">*</sup></span>
+      <div class="contact_person_text_wrapper">
+          <input type="text" formControlName="BoqAddressName" class="contact_textbox" placeholder="Enter" minlength="3"
+          (keydown)="onkeyDownAllFields()">
+        </div>
+        </div>  
+        <div class="alert alert-danger" *ngIf="BoqAddressName.touched && BoqAddressName.invalid">
+          <div  *ngIf="!!BoqAddressName.errors.required">Please Enter the Name</div>
+      </div>
+    </div>
+  </div>
+  <!-- secondhalf -->
+  <div class="col-md-6 startingcolumn project_to_duplicate_wrapper">
+      <div style="height:85px;">
+      <div class="project_half_block_advance project_half_block_right">
+        <span class="client_name_head_text">Client Logo<sup class="redstar">*</sup></span>
+          <div *ngIf="editJourney && S3image" class="logoFloat"> <a class="button" [href]="'http://s3.amazonaws.com/wom-documents/'+this.imageArrayEdit['projectLogoSrc']">View extisting Logo</a> </div> 
+          <input type="file" accept="image/*" (change)="uploadlogodata($event)" formControlName="projectlogo" class="uploadlogo" />
+        </div>
+      <!-- error -->
+      <!-- <div class="alert alert-danger paddingleft" *ngIf="projectlogo.touched && projectlogo.invalid">
+        <div  *ngIf="projectlogo.errors.required">Please Select the image</div>
+     </div> -->
+      </div>
+    </div>
+    <div class="col-md-12 startingcolumn clientheading_wrapper">
+      <div class="blueborder">
+      <span class="new_pro_heading_text">Contacts</span>
+      </div>
+      <div class="abCLass2">
+      <img src="assets/images/BlueIcons/icons8-plus-40.png"  style="padding-left: 5px;" class="client_img_icon cp"
+      (click)="addParameter()" data-toggle="tooltip" title="Add Contacts">
+      </div>
+  </div>
+  <!-- design spoc -->
+   <!-- form array -->            
+   <form formArrayName="Parameter" class="formclass">
+      <div [formGroupName]="i" *ngFor="let parameter of parameters.controls; let i=index">
+            <div class="row">
+          <div class="col-md-4 startingcolumn subheading_class_advance10 advance_space">
+              <div class="project_To_duplicate_block padbtm5">
+                  <span class="client_name_head_text">Designation <sup class="redstar">*</sup></span>
+                  <div class="drop_list">
+                    <ng-multiselect-dropdown
+                    formControlName="clientDesignation"
+                    [placeholder]="'Select'"
+                    [data]="dropdownList"
+                    [settings]="dropdownSettings"
+                    (click)="changeValue(parameter.controls.clientDesignation.value, i)">
+                  </ng-multiselect-dropdown>
+                  </div>
+              </div>
+              <!-- required validation fields -->
+              <div class="alert alert-danger leftspace" *ngIf="!!parameter.controls.clientDesignation.touched && !!parameter.controls.clientDesignation.invalid">
+                <div  *ngIf="!!parameter.controls.clientDesignation.errors.required">Please Enter Designation</div>
+             </div>
+            <!-- required validation fields -->
+            </div>
+            <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space">
+                <div class="advance_project_block">
+                    <div class="advance_head">
+                      <span class="advance_head_span">Name <sup class="redstar">*</sup></span>        
+                    </div>
+                    <div class="advance_client_text_class">
+                        <input type="text" formControlName="teamDataName"   class="contact_textbox" placeholder="Enter" (keydown)="onkeyDownAllFields()">
+                    </div>
+                </div>
+                <!-- required validation fields -->
+                <div class="alert alert-danger leftspace" *ngIf="!!parameter.controls.teamDataName.touched && !!parameter.controls.teamDataName.invalid">
+                  <div  *ngIf="!!parameter.controls.teamDataName.errors.required">Please Enter the Name</div>
+               </div>
+              <!-- required validation fields -->
+            </div>
+            <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space" *ngIf="Activeindex.includes(i)">
+                <div class="advance_project_block">
+                    <div class="advance_head">
+                      <span class="advance_head_span">Other Designation <sup class="redstar">*</sup></span>        
+                    </div>
+                    <div class="advance_client_text_class">
+                        <input type="text" formControlName="clientotherDesignation"  class="contact_textbox" placeholder="Enter" (keydown)="onkeyDownAllFields()">
+                    </div>
+                </div>
+                <!-- <div class="alert alert-danger leftspace" *ngIf="parameter.controls.clientotherDesignation.touched && parameter.controls.clientotherDesignation.invalid"> -->
+                <!-- <div *ngIf = "!!parameter.controls.clientotherDesignation.errors.validateClientName"> -->
+                   <div *ngIf ="parameter.controls.clientotherDesignation.errors?.validateClientName && (parameter.controls.clientotherDesignation.touched || parameter.controls.clientotherDesignation.dirty)" class="alert alert-danger"> 
+                  Designation already exists
+                </div>
+                <!-- </div> -->
+                <!-- required validation fields -->
+                <!-- <div class="alert alert-danger leftspace" *ngIf="parameter.controls.clientotherDesignation.touched && parameter.controls.clientotherDesignation.invalid">
+                  <div  *ngIf="parameter.controls.clientotherDesignation.errors.required">Please Enter Other Designation</div>
+               </div> -->
+              <!-- required validation fields -->
+            </div>
+            <div class="col-md-4 startingcolumn" *ngIf="!Activeindex.includes(i)"></div>
+              <div class="col-md-4 startingcolumn subheading_class_advance10 advance_space">
+                  <div class="advance_project_block">
+                      <div class="advance_head">
+                        <span class="advance_head_span">Email</span>        
+                      </div>
+                      <div class="advance_client_text_class">
+                          <input type="text"  (blur)="onBlurvalidation($event,'Email',i)"  formControlName="teamDataEmail" class="contact_textbox" placeholder="Enter" (keydown)="onkeyDownAllFields()">
+                      </div>
+                  </div>
+                <div class="alert alert-danger" *ngIf="!!parameter.controls.teamDataEmail.touched && !!parameter.controls.teamDataEmail.invalid">
+               <!-- <div  *ngIf="parameter.controls.teamDataEmail.errors.required">Please Enter name.</div> -->
+               <div  *ngIf="!!parameter.controls.teamDataEmail.errors.pattern">Please Enter valid Email Address.</div>                
+                </div>
+              </div>
+              <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space mobile">
+                  <div class="advance_project_block">
+                      <div class="advance_head">
+                        <span class="advance_head_span">Mobile</span>        
+                      </div>
+                      <div class="advance_client_text_class">
+                          <input type="text" formControlName="teamDataMobile" maxlength="10" (keyup)="onkeyup($event, 'number')" class="contact_textbox" placeholder="Enter" (keydown)="onkeyDownAllFields()">
+                      </div>
+                  </div>
+                  <div class="alert alert-danger" *ngIf="!!parameter.controls.teamDataMobile.touched && !!parameter.controls.teamDataMobile.invalid">
+                    <div  *ngIf="!!parameter.controls.teamDataMobile.errors.pattern">Please Enter valid Mobile.</div>                
+                  </div>
+              </div>
+              <div class="col-md-4 startingcolumn subheading_class_advance20 advance_space deleteICONCSD">
+            <div class="client_contact_remove">
+          <!-- <img src="assets/images/BlueIcons/trash.png" class="client_img_icon" (click)="removeParamter(i)"> -->
+          <i class="fa fa-trash cp" mat-button   (click)="removeParamter(i)"style="font-size: 20px;padding-top:13px"  aria-hidden="true" data-toggle="tooltip" title="Delete Contacts"></i>
+        </div>
+      </div>
+      </div>
+      </div>
+      </form>
+  <!-- form array completed -->
+    <!-- architect ends here -->
+<!-- FILE heading -->
+<div class="col-md-12 startingcolumn clientheading_wrapper upperspace">
+    <div class="yellow_border">
+      <span class="new_pro_heading_text">File Upload</span>
+    </div> 
+    <div class="abCLass">
+        <img src="assets/images/BlueIcons/icons8-plus-40.png"  style="padding-left: 5px;" class="client_img_icon cp"
+        (click)="addfiles()" data-toggle="tooltip" title="Add Files">
+        </div>     
+  </div>   
+
+<form formArrayName="fileData" class="formclass">
+    <div [formGroupName]="i" *ngFor="let parameter of filedataarray.controls; let i=index">
+          <div class="row">
+<!-- fileupload name THREE-->
+<div class="col-md-4 startingcolumn project_to_duplicate_wrapper">
+<div class="project_half_block">
+<span class="client_name_head_text">Name <sup class="redstar">*</sup></span>
+  <div class="contact_person_text_wrapper">
+    <input type="text" formControlName="fileName1"  class="contact_textbox" placeholder="Enter" (keydown)="onkeyDownAllFields()">
+  </div>
+</div>
+</div>
+<!-- fileupload description THREE-->
+<div class="col-md-4 startingcolumn project_to_duplicate_wrapper">
+<div class="project_half_block project_middle_block project_half_block_description">
+<span class="client_name_head_text">Description</span>
+<div class="description_wrapper">
+<textarea formControlName="fileDesc1" (click)="onkeyDownAllFields()">
+</textarea>
+</div>
+</div>
+</div>
+<!-- upload THREE-->
+<div class="col-md-3 startingcolumn project_to_duplicate_wrapper">
+<div class="project_half_block project_half_block_right">
+<span class="client_name_head_text">Upload<sup class="redstar">*</sup></span>
+<div class="uploadfile_wrapper">
+    <input type="file"  (change)="uploadfiledata($event,i,'FileSideGroup')" class="upload" formControlName="uploadfile" accept="image/*" multiple name="file" [id]="'file'+i"/>
+    <!-- <label [for]="'file'+i" class="Renderfileupload" class="Renderfileupload">Choose File</label> -->
+</div>
+</div>
+</div>
+<div class="col-md-1 startingcolumn project_to_duplicate_wrapper">
+    <div class="client_contact_remove1">
+        <!-- <img src="assets/images/BlueIcons/trash.png" class="client_img_icon" (click)="removeParamter(i)"> -->
+        <i class="fa fa-trash cp" mat-button   (click)="removefiles(i,parameter)"style="font-size: 20px;padding-top:13px"  aria-hidden="true" data-toggle="tooltip" title="Delete All Files"></i>
+      </div>
+    </div>
+</div>
+<div class="row">
+    <!-- <div class="col-md-5 startingcolumn project_to_duplicate_wrapper">
+      
+    </div> -->
+    <div class="col-md-11 startingcolumn project_to_duplicate_wrapper paddingleft6">
+        <p style="margin: 5px 0px" class="new_pro_heading_text" *ngIf="this.fileLenderArrlength[i] || DbRenderdata[i]?.length > 0">Number of Files: {{ fileLenderArr[i]?.length + DbRenderdata[i]?.length }} </p>
+        <!-- {{this.fileLenderArrlength[i] || DbRenderdata[i]?.length}} -->
+        <table style="font-size: x-small;margin-bottom: 0px;" class="table" *ngIf="this.fileLenderArrlength[i] || DbRenderdata[i]?.length > 0">
+            <thead>
+            <tr>
+                <td style="padding-bottom: 0px;padding-top: 7px;" width="80%" class="client_name_head_text1">File Name</td>
+                <td style="padding-bottom: 0px;padding-top: 7px;" class="client_name_head_text1">Remove</td>
+            </tr>
+            </thead>
+            <tbody>
+                <tbody *ngIf="editJourney">
+                    <tr *ngFor="let item of DbRenderdata[i]">
+                        <td style="padding-bottom: 0px;padding-top: 7px;"><strong><a [href]="'http://s3.amazonaws.com/wom-documents/'+item.obj.filePath"
+                          
+                                    target="new">{{ (item?.obj.displayFileName.length>20)? (item?.obj.displayFileName | slice:0:20)+'..':(item?.obj.displayFileName) }}</a></strong>
+
+                        <td style="padding:0px;" nowrap>
+                            <i class="fa fa-trash cp" mat-button (click)="deletefromDBnAWS('FileSideGroup',$event,item,i)"
+                                style="font-size: 15px;padding-top: 12px;padding-left: 25px;"
+                                aria-hidden="true" data-toggle="tooltip" title="Delete File"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            <tr *ngFor="let item of fileLenderArr[i]">
+                <td style="padding-bottom: 0px;padding-top: 7px;"  ><strong>{{ item?.name }}</strong></td>
+    
+                <td style="padding:0px;" nowrap>
+                            <i class="fa fa-trash cp" mat-button (click)="deleteARenderFile(item,i)"   style="font-size: 15px;padding-top: 12px;padding-left: 25px;"  aria-hidden="true" data-toggle="tooltip" title="Delete File"></i>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+      </div>
+      <div class="col-md-1 startingcolumn project_to_duplicate_wrapper"></div>
+   
+        </div>
+</div>
+
+</form>
+
+<!-- ends here -->
+  <!-- Client side data ends here -->
+      </div>
+    </form>
+        
+    <div *ngIf="formerror && form.invalid" class="alert alert-danger">
+        Please fill all the details
+    </div>
+    <!-- <div *ngIf="addprojected" class="greenClass">
+      Project added successfully
+    </div> -->
+    <div *ngIf="otherDesignationDuplicate" class="alert alert-danger">
+        Other Designation should be unique
+    </div>
+    <div *ngIf="clientNameDuplicate" class="alert alert-danger">
+      Client Name should be unique
+    </div>
+    <div *ngIf="fileNameDuplicate" class="alert alert-danger">
+      File Name should be unique
+    </div>
+<div [ngClass]="{'backendErrorClass':this._communicationService.backendError}" *ngIf="this._communicationService.backendError">
+  {{this._communicationService.backendMsg}}
+</div>
+<div *ngIf="duplicateProject" class="alert alert-danger">
+  {{this.duplicateProjectErrorMsg}}
+</div>
+    </div>
+    <!-- <pre>{{form.value | json}}</pre>     -->
+    <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 add_project_footer">
+      <div class="row startingcolumn">
+        <div class="col-md-12 startingcolumn">
+          <div class="add_project_footer_content">
+            <div class="cancel_wrapper">
+              <button class="cancel_button footer_button" (click)="Cancel()"><span class="footer_text">CANCEL</span></button>
+            </div>
+            <div class="next_wrapper">
+              <button class="next_button footer_button" *ngIf="addProject" (click)="Submit(form.value,'submit')" [disabled]="form.invalid"><span class="footer_text">SUBMIT</span></button>
+              <button class="next_button footer_button" *ngIf="!addProject" (click)="Submit(form.value,'update')" [disabled]="form.invalid"><span class="footer_text">UPDATE</span></button>              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- popup -->
+<p-dialog header="" 
+[(visible)]="display" 
+[closable]="false" 
+[modal]="true" 
+[responsive]="true" 
+[minWidth]="200" 
+[minY]="70" 
+[maximizable]="false"
+[baseZIndex]="10000">
+<div class="container">
+  <p class="headBold" *ngIf="filepopup">Are you sure you want to delete this File?</p>
+  <p class="headBold" *ngIf="cliensidepopup">Are you sure you want to delete this Client Contacts?</p>
+<div class="btnClass">
+  <div *ngIf="filepopup" class="inliner">
+    <div>
+      <button type="button" class="btn popupbtn orangeclass" (click)="callDelete()">Yes</button>
+    </div>
+    <div class="leftsilverclass">
+      <button type="button" class="btn popupbtn silverclass" (click)="closeDialog()">No</button>
+    </div>
+  </div>
+  <div *ngIf="cliensidepopup" class="inliner">
+    <div>
+        <button type="button" class="btn popupbtn orangeclass" (click)="deleteClient()">Yes</button>
+    </div>
+    <div class="leftsilverclass">
+    <button type="button" class="btn popupbtn silverclass" (click)="closeDialogClient()">No</button>      
+      </div>
+  </div>
+  </div>
+</div>
+</p-dialog>
+
+<!-- edit message pop-up -->
+<p-dialog header="" 
+[(visible)]="addprojected" 
+[closable]="false" 
+[modal]="true" 
+[responsive]="true" 
+[minWidth]="200" 
+[minY]="70" 
+[maximizable]="false" 
+[baseZIndex]="10000" appendTo="body">
+<div class="pop_open_close_wraper">
+    <div class="pop_open_close_header pop_open_close_bottom">
+        {{this.message}}
+    </div>
+    <div>
+        <button (click)="redirectOkButton()" class="pop_button pop_button_orange">OK</button>
+    </div>
+</div>
+</p-dialog>
+
+
+<div class="popup">
+  <p-dialog [(visible)]="displayaddnewvariant" [modal]="true" [responsive]="true" [width]="800" [minY]="80" [maximizable]="false"
+      [baseZIndex]="10000" [contentStyle]="{'height': '850px'}">
+      <app-clientinformation #removeContact></app-clientinformation>
+  </p-dialog>
+</div>

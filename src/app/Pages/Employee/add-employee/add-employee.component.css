@@ -1,0 +1,390 @@
+.maindiv{
+    margin-bottom: 20px;
+    padding: 10px;
+    margin: 0px;
+    width: 80%;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+    padding-bottom: 15px;
+    font-family:  "Roboto Slab-Bold";
+    border-radius: 4px; 
+    margin-left: 42px;
+}
+
+.heading{
+    margin-top: 15px;
+    color: #ffaa14;
+    width: 80%;
+    margin-left: 42px;
+    margin-bottom: 15px;
+}
+.leftheading{
+    font-size: 24px;
+}
+.rightheading{
+    float: right;
+    font-family: Helvetica;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.04px;
+    line-height: 14px;
+    text-align: right;
+}
+/* input border color */
+input:focus, textarea:focus, select:focus {
+    outline-offset: 0px !important;
+    outline: none !important;
+}   
+:host >>> .ui-inputtext:focus{
+    box-shadow: 0px 0px 0px #ffffff !important;
+}
+.drop_list_client_name{
+    width:98%;
+    /* height: 30px; */
+    /* overflow: hidden; */
+    background: no-repeat #ffffff;
+    background-image:url("../../../../assets/images/BlueIcons/icons8-down-button-40.png");
+    background-size: 20px 20px;
+    background-position:right center;
+}
+
+.autodropclass{
+    font-family: "Roboto Slab";	    
+    color: #4A4A4A;
+    font-size:18px;
+}
+h3{
+    font-size: 24px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+.nopadding{
+    float: left;
+    padding: 0px !important;
+}
+.project_To_duplicate_block{
+    padding:16px 0px 5px 0px;
+    height: 70px;
+    width: 95%;
+    border-bottom: 1px solid #D3D3D3;    
+}
+
+.client_name_head_text{	
+    color: #515151;	
+    font-family: "Roboto Slab-Bold";	
+    font-size: 13px;		
+    line-height: 18px;
+    display: block;
+    margin-bottom:5px;
+}
+.input_text, select{
+    width: 100%;
+    color: #4A4A4A;
+    font-weight: normal;
+}
+input{
+    color: #4A4A4A;	
+    font-family: "Roboto Slab";	
+    font-size: 18px;	
+    line-height: 24px;
+}
+.text{
+    border: 0px;
+    width: 100%;
+    height: 24px;
+    color: #4A4A4A;
+}
+.text1{
+    border: 0px;
+    width: 150px;
+    height: 24px;
+}
+.drop_list {
+    /* width: 256px; */
+    width:251px;
+    height: 24px;
+    /* overflow: hidden; */
+    background: no-repeat #ffffff;
+    background-image:url("../../../../assets/images/BlueIcons/icons8-down-button-40.png");
+    background-size: 20px 20px;
+    background-position:right center;
+}
+.drop_list select{
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    background: transparent;
+    height: 24px;
+    width: 274px;
+    overflow: hidden;
+    color: #9B9B9B;	
+    font-family: "Roboto Slab";	
+    font-size: 18px;	
+    line-height: 24px;
+    border:none;
+    -webkit-appearance:none;
+    appearance:none;
+}
+.btn{
+    line-height: 3px;
+    bottom: 10px;
+    float:right;
+    position: relative;
+    /* right: 2px; */
+    font-family: "Roboto Slab";
+    height: 33px;
+    width: 25%;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+.alert-danger{
+    background-color: #ffffff;
+    border-color: #ffffff;
+    font-size: 14px;
+}
+.alert{
+    padding: 0px;
+}
+.btn-success1{
+    background-color: #FF9801;
+}
+.btn-success2{
+    margin-right: 20px;
+    background-color: #909090;
+}
+.star{
+    color: red;
+}
+.categories_image_class{
+    position: relative;
+    height: 24px;
+    float: right;
+    margin-right: 25px;
+    z-index: 1000;
+    cursor: pointer;
+}
+.addcomp{
+    margin-top: 10px;
+}
+
+.popup{
+    padding: 50px;
+}
+
+.autodropclass{
+    font-family: "Roboto Slab";	    
+    color: #4A4A4A;
+    font-size:18px;
+}
+
+
+/* :host >>> .ui-autocomplete-panel .ui-autocomplete-list{
+    padding:0;
+} */
+.alert-danger{
+    color: #e62d08;
+    background-color: #ffffff !important; 
+    border-color: #ffffff !important; 
+    font-family: "Roboto Slab-Bold";	            
+}
+.alert{
+    font-size: 11px;
+    padding: 5px;
+    margin-bottom: 0px !important;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: "Roboto Slab-Bold";	    
+    
+}
+.greenclass{
+    font-size: 11px;
+    padding: 5px;
+    margin-bottom: 0px !important;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: "Roboto Slab-Bold";	
+    color:green;
+}
+/* button border color */
+.btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
+.pop_open_close_wraper{
+    padding:20px;
+    text-align:center;
+}
+.popup_yesno{
+    text-align: center;
+    display: flex;
+}
+.pop_button{
+    height: 37px;
+    width: 110px;
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    font-family: "Roboto Slab-Bold";
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+}
+.pop_button_orange{
+    background: #FF9801;
+}
+.pop_open_close_bottom{
+    padding-bottom:20px;
+    color: #515151;	
+    font-family: "Roboto Slab-Bold";	
+    font-size: 15px;	
+}
+.pop_button:active,
+.pop_button:focus,
+.pop_button.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+/* rohit new autocomplete dropdown */
+:host >>> .ui-dropdown input.ui-dropdown-label:hover {
+    background: transparent;
+}
+:host >>> .ui-inputtext:enabled:hover {
+    border-color: transparent;
+    background: transparent;
+}
+:host >>> .ui-autocomplete-dd input.ui-corner-all{
+    /* font-size:15px; */
+    /* font-size: 1em; */
+    color: #4A4A4A;	
+    font-family: "Roboto Slab";
+    border: none;
+    background: transparent;
+    height: 24px;
+}
+ :host >>> .ui-widget.ui-button, .ui-button{
+    background: transparent;
+    color: transparent;
+    border: none;
+}
+:host >>> .ui-widget.ui-button, .ui-button:hover{
+    background: transparent !important;
+    color: transparent !important;
+    border:none !important;
+} 
+:host >>> .ui-button-icon-only .ui-button-text, .ui-button-text-empty .ui-button-text {
+    height: 24px;
+}
+/* dialog */
+:host >>> .ui-dialog {
+    min-height: 100px !important;
+}
+:host >>> .ui-dialog .ui-dialog-titlebar {
+    padding:0;
+}
+:host >>> .ui-dialog.ui-widget .ui-dialog-titlebar {
+    padding:0;
+}
+:host >>> .ui-dialog.ui-widget .ui-dialog-content{
+    padding:0;    
+}
+:host >>> .ui-dialog .ui-dialog-content {
+    padding:0;        
+}
+.extrawidth{
+    width:85%;
+}
+@media only screen and (max-width:2000px){
+    .maindiv{
+        /* position: relative; */
+        /* top:-100px; */
+        /* left: 32%; */
+        margin-bottom: 20px;
+        width: 80%;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+        padding-bottom: 15px;
+        font-family:  "Roboto Slab-Bold";
+        border-radius: 4px; 
+        margin-left: 42px;
+    }
+    .heading{
+        color: #ffaa14;
+        /* position: relative; */
+        /* top: -110px; */
+        /* left: 31.5%; */
+        width: 80%;
+        margin-left: 42px;
+    }
+}
+
+@media only screen and (max-width:1500px){
+    .maindiv{
+        /* position: relative; */
+        /* top:-100px; */
+        /* left: 28%; */
+        margin-bottom: 20px;
+        width: 80%;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+        padding-bottom: 15px;
+        font-family:  "Roboto Slab-Bold";
+        border-radius: 4px; 
+        margin-left: 42px;
+    }
+    .heading{
+        color: #ffaa14;
+        /* position: relative; */
+        /* top: -110px; */
+        /* left: 27.4%; */
+        width: 80%;
+        padding-right: 4px;
+        margin-left: 42px;
+    }
+}
+@media only screen and (max-width:1200px){
+    .maindiv{
+        /* position: relative; */
+        /* top:-100px; */
+        /* left: 22%; */
+        margin-bottom: 20px;
+        width: 80%;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+        padding-bottom: 15px;
+        font-family:  "Roboto Slab-Bold";
+        border-radius: 4px;
+        margin-left: 42px; 
+    }
+    .heading{
+        color: #ffaa14;
+        /* position: relative; */
+        /* top: -110px; */
+        /* left: 22%; */
+        width: 80%;
+        margin-left: 42px;
+    }
+
+}
+@media only screen and (max-width:980px){
+    .maindiv{
+        /* position: relative; */
+        /* top:-100px; */
+        /* left: 12%; */
+        margin-bottom: 20px;
+        width: 80%;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+        padding-bottom: 15px;
+        font-family:  "Roboto Slab-Bold";
+        margin-left: 42px;
+    }
+    .heading{
+        color: #ffaa14;
+        /* position: relative; */
+        /* top: -110px; */
+        /* left: 12%; */
+        width: 100%;
+        margin-left: 42px;
+    }
+}

@@ -1,0 +1,30 @@
+<p-dialog
+  [(visible)]="this.communicationservice.commonErrorPopup" 
+  [closable]="false" 
+  [modal]="true" 
+  [blockScroll]= "true"
+  [responsive]="true" 
+  [minWidth]="200" 
+  [minY]="70" 
+  [maximizable]="false" 
+  [baseZIndex]="10000" appendTo="body" [contentStyle] ="{'padding':'0px !important'}" >
+  <!-- <div class="pop_open_close_wraper" *ngIf="display_message_for_category_add_message"> -->
+  <div class="pop_open_close_wraper"> 
+      <div class="pop_open_close_header pop_open_close_bottom">
+          {{this.communicationservice.commonErrorPopupMsg}}
+      </div>
+      <div class="ok_class">
+          <button (click)="onclick()" class="pop_button pop_button_orange">OK</button>
+      </div>
+  </div>
+  <!-- <div *ngIf="displayAddNo">
+    <div class="container1">
+        <p *ngIf="subCategoryPop">Are you sure you want to delete this Sub-Category?</p>
+        <p *ngIf="itemPop">Are you sure you want to delete this Item?</p>  
+        <div *ngIf="subCategoryPop" class="center_class">
+          <button type="button" class="btn1 popupbtn orangeclass" (click)="deleteSubPop()">Yes</button>
+          <button type="button" class="btn1 popupbtn silverclass" (click)="closeDialogClient()">No</button>
+        </div>
+      </div>
+  </div> -->
+  </p-dialog>

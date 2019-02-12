@@ -1,0 +1,127 @@
+<!-- <header></header> -->
+<div class="project_wrapper">
+    <div class="nopadding title col-lg-12 col-md-12 col-sm-12">
+        <!-- <div class="nopadding  titleleft col-lg-6 col-md-6 col-sm-6"> -->
+        <span class="titleleft">Category Listing</span>
+        <!-- </div> -->
+        <!-- <div class="nopadding titleright col-lg-6  col-md-6 col-sm-6"> -->
+        <span class="titleright">You are here : Category Listing</span>
+        <!-- </div> -->
+    </div>
+    <div class="maindiv row">
+        <div class="tablecontainer">
+            <p-table #dt [columns]="cols" [value]="categories" selectionMode="single" [paginator]="true" [rows]="10"
+                [totalRecords]=[categorieslength] class="some-custom-class-name" [resizableColumns]="true">
+                <ng-template pTemplate="caption">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- searchbox -->
+                            <div class="col-md-6  searchtop">
+                                <div class="search_button_wrapper">
+                                    <div class="search_wrapper">
+                                        <input type="text" class="inputtextsearch" placeholder="Search for Categories"
+                                            (input)="dt.filterGlobal($event.target.value, 'contains')">
+                                    </div>
+                                    <div class="button_wrapper">
+                                        <button class="searchiconbutton"><img src="assets/images/BlueIcons/icons8-search-40.png"
+                                                class="search_image_icon"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <!-- test -->
+                <ng-template pTemplate="colgroup" let-columns>
+                    <colgroup>
+                        <col *ngFor="let col of columns" [style.width]="col.width">
+                    </colgroup>
+                </ng-template>
+                <!-- Rows and columns -->
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" pResizableColumn>
+                            {{col.header}}
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+                    <tr [pSelectableRow]="rowData">
+                        <td *ngFor="let col of columns" class="ui-resizable-column">
+                            <div *ngIf="col.header == 'Action' else elseBlock">
+                                <button *ngIf="isEdit" pButton type="button" icon="fa fa-pencil" (click)="editCategoryData(dt,rowIndex)" data-toggle="tooltip" title="Edit"></button>                                    
+                                &nbsp;
+                                    <button *ngIf="isDelete" pButton type="button" icon="fa fa-trash" (click)="delete(dt,rowIndex)" data-toggle="tooltip" title="Delete"></button>                                
+                            </div>
+                            <div *ngIf="col.header == 'Add Parameters'">
+                                <a (click)="Addparameter(dt,rowIndex)" class="aa">Add Parameters</a>
+                            </div>
+                            <ng-template #elseBlock>
+                                {{rowData[col.field]}}
+                            </ng-template>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <div *ngIf="norecords" class="redclass">
+                    No Records to display here
+            </div>
+            <div [ngClass]="{'backendErrorClass':this._communicationservice.backendError}" *ngIf="this._communicationservice.backendError">
+                {{this._communicationservice.backendMsg}}
+            </div>
+        </div>
+        <div class="addbtn">
+            <input *ngIf="isAdd" type="submit" value="Add Category" class="btn btn-success1" (click)="showDialogToAdd()">
+        </div>
+    </div>
+</div>
+
+<!-- ========================== Add categories================================ -->
+<div class="popup">
+    <p-dialog [contentStyle]="{'max-height':'500px'}" [(visible)]="displayaddnewvariant" [modal]="true" [responsive]="true"
+        [maximizable]="false" [width]="500" [baseZIndex]="10000" [contentStyle]="{'height': '850px'}" [style]="{'padding-bottom':'10px'}">
+        <app-add-category #removeSubCategory></app-add-category>
+    </p-dialog>
+
+</div>
+<!----------------- Add parameters ---------------------->
+<div class="popup">
+    <p-dialog [(visible)]="parameter" [modal]="true" [style]="{'width':'auto'}" [responsive]="true" [maximizable]="false"
+        [baseZIndex]="10000" [contentStyle]="{'height': '500px'}">
+        <app-add-parameters></app-add-parameters>
+    </p-dialog>
+</div>
+
+<!-- pop up for delete yes and no options -->
+<p-dialog header="" [(visible)]="displayopenclose" [closable]="false" [modal]="true" [responsive]="true" [minWidth]="200"
+    [minY]="70" [maximizable]="false" [baseZIndex]="10000">
+    <div class="pop_open_close_wraper">
+        <div class="pop_open_close_header pop_open_close_bottom">
+            Are you sure you want to delete?
+        </div>
+        <div class="popup_yesno">
+            <div>
+                <button (click)="showOpenCloseDialog()" class="pop_button pop_button_orange">YES</button>
+            </div>
+            <div class="pop_left_space">
+                <button (click)="closeOpenCloseDialog()" class="pop_button pop_button_silver">NO</button>
+            </div>
+        </div>
+    </div>
+</p-dialog>
+
+<!-- delete pop-up -->
+<p-dialog header="" [(visible)]="display_message_for_delete" [closable]="false" [modal]="true" [responsive]="true"
+    [minWidth]="200" [minY]="70" [maximizable]="false" [baseZIndex]="10000">
+    <div class="pop_open_close_wraper">
+        <div class="pop_open_close_header pop_open_close_bottom">
+            <span>{{this.message}}</span>
+        </div>
+        <div class="ok_class" *ngIf="!catpresent">
+            <button (click)="okMessageForDelete()" class="pop_button pop_button_orange">OK</button>
+        </div>
+        <div class="ok_class" *ngIf="catpresent">
+            <button (click)="closeDisplay_message_for_delete()" class="pop_button pop_button_orange">OK</button>
+        </div>
+    </div>
+</p-dialog>

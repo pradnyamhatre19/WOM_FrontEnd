@@ -1,0 +1,311 @@
+/* Added by Amol */
+
+/* .alert-danger{
+    background-color: #ffffff;
+    border-color: #ffffff;
+    font-size: 13px;
+}
+.alert{
+    padding: 0px;
+} */
+.alert-danger{
+    font-size: 12px;
+    color: #e62d08;
+    background-color: #ffffff !important; 
+    border-color: #ffffff !important; 
+    font-family: "Roboto Slab-Bold";	            
+}
+/* Added by Amol */
+.nopadding{
+    float: left;
+    padding: 0px !important;
+}
+.heading{
+    color: #ffaa14;
+    width: 80%;
+    margin-left: 42px;
+}
+.empheading{
+    margin-top: 20px;
+}
+.leftheading{
+    font-size: 24px;
+}
+.maindiv{
+    /* margin-bottom: 20px; */
+    padding: 10px;
+    margin: 0px;
+    width: 80%;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+    padding-bottom: 15px;
+    font-family:  "Roboto Slab-Bold";
+    border-radius: 4px; 
+    margin-left: 42px;
+}
+.project_To_duplicate_block{
+    padding:13px 0px 5px 0px;
+    height: 70px;
+    width: 95%;
+    border-bottom: 1px solid #D3D3D3;    
+}
+.client_name_head_text{	
+    color: #515151;	
+    font-family: "Roboto Slab-Bold";	
+    font-size: 13px;		
+    line-height: 18px;
+    display: block;
+    margin-bottom:5px;
+}
+.input_text, select{
+    width: 100%;
+    color: #4A4A4A;
+    font-weight: normal;
+}
+input{
+    color: #4A4A4A;	
+    font-family: "Roboto Slab";	
+    font-size: 18px;	
+    line-height: 24px;
+}
+.text{
+    border: 0px;
+    width: 100%;
+    height: 24px;
+    color: #4A4A4A;
+}
+.star{
+    color: red;
+}
+.drop_list_client_name{
+    width:98%;
+    background: no-repeat #ffffff;
+    background-image:url("../../../../assets/images/BlueIcons/icons8-down-button-40.png");
+    background-size: 20px 20px;
+    background-position:right center;
+}
+.autodropclass{
+    font-family: "Roboto Slab";	    
+    color: #4A4A4A;
+    font-size:18px;
+}
+.btn{
+    z-index:999;
+    font-family: "Roboto Slab";
+    height: 33px;
+    width: 174px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    line-height: 3px;
+}
+.extraspace{
+    padding-bottom:10px !important; 
+    width:91%;
+}
+.extrabottom{
+    min-height:40px;
+    z-index:-1;
+}
+.clientright{
+    float:right;
+}
+.clientInliner{
+    display: inline-block;
+}
+.btn-success1{
+    margin-left: 20px;
+    background-color: #FF9801;
+}
+.btn-success2{
+    background-color: #909090;
+}
+.check_heading{
+    margin-top: 10px;
+    background-color: #ffaa14;
+    color: #FFFFFF;
+    font-family: "Roboto Slab";
+}
+.check_head{
+    padding-left: 8px;
+}
+.check_lable{
+    font-family: "Roboto Slab";
+    font-size: 15px;
+}
+.inputbox_name{
+    border: transparent !important;
+    background-color: #ffaa14 !important;
+    cursor: default !important;
+    color: white !important;
+}
+form{
+    width:100%;
+}
+
+.pop_button{
+    height: 37px;
+    width: 110px;
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    font-family: "Roboto Slab-Bold";
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+}
+.pop_button_orange{
+    background: #FF9801;
+}
+
+.pop_open_close_bottom{
+    padding-bottom:20px;
+    color: #515151;	
+    font-family: "Roboto Slab-Bold";	
+    font-size: 15px;	
+}
+.ok_class{
+    text-align: center;
+}
+
+
+:host >>> .ui-dialog .ui-button-icon-only .ui-button-text{
+padding: 0px;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline-offset: 0px !important;
+    outline: none !important;
+}  
+:host >>> .ui-inputtext:enabled:hover {
+    border-color: transparent;
+    background: transparent;
+}
+:host >>> .ui-widget.ui-button, .ui-button:hover{
+    background: transparent !important;
+    color: transparent !important;
+    border:none !important;
+}
+:host >>> .ui-autocomplete-dd input.ui-corner-all{
+    border: none;
+    background: transparent;
+    width: 92%;
+    height: 24px;
+    padding-left:0;
+}
+:host >>> .ui-autocomplete-panel .ui-autocomplete-list{
+    padding:0;
+}
+:host >>> .ui-autocomplete{
+    width: 100%;
+}
+:host >>> .ui-button-icon-only .ui-button-icon-left{
+    width: 3em;
+}
+@media only screen and (max-width:2000px){
+    .maindiv{
+        /* position: relative; */
+        /* top:-100px; */
+        /* left: 32%; */
+        margin-bottom: 20px;
+        width: 82%;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+        padding-bottom: 15px;
+        font-family:  "Roboto Slab-Bold";
+        border-radius: 4px; 
+        margin-left: 42px;
+    }
+    .heading{
+        color: #ffaa14;
+        /* position: relative; */
+        /* top: -110px; */
+        /* left: 31.5%; */
+        width: 80%;
+        margin-left: 42px;
+        margin-bottom:15px;
+    }
+    :host >>> .ui-autocomplete-dd input.ui-corner-all{
+        width: 86%;
+    }
+}
+@media only screen and (max-width:1500px){
+    .maindiv{
+        /* position: relative; */
+        /* top:-100px; */
+        /* left: 28%; */
+        margin-bottom: 20px;
+        width: 86%;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+        padding-bottom: 15px;
+        font-family:  "Roboto Slab-Bold";
+        border-radius: 4px; 
+        margin-left: 42px;
+    }
+    .heading{
+        color: #ffaa14;
+        /* position: relative; */
+        /* top: -110px; */
+        /* left: 27.4%; */
+        width: 80%;
+        padding-right: 4px;
+        margin-left: 42px;
+    }
+    :host >>> .ui-autocomplete-dd input.ui-corner-all{
+        border: none;
+        background: transparent;
+        width: 86%;
+        height: 24px;
+        padding-left:0;
+    }
+
+}
+@media only screen and (max-width:1200px){
+    .maindiv{
+        /* position: relative; */
+        /* top:-100px; */
+        /* left: 22%; */
+        margin-bottom: 20px;
+        width: 86%;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+        padding-bottom: 15px;
+        font-family:  "Roboto Slab-Bold";
+        border-radius: 4px;
+        margin-left: 42px; 
+    }
+    .heading{
+        color: #ffaa14;
+        /* position: relative; */
+        /* top: -110px; */
+        /* left: 22%; */
+        width: 80%;
+        margin-left: 42px;
+    }
+
+}
+@media only screen and (max-width:980px){
+    .maindiv{
+        /* position: relative; */
+        /* top:-100px; */
+        /* left: 12%; */
+        margin-bottom: 20px;
+        width: 80%;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+        padding-bottom: 15px;
+        font-family:  "Roboto Slab-Bold";
+        margin-left: 42px;
+    }
+    .heading{
+        color: #ffaa14;
+        /* position: relative; */
+        /* top: -110px; */
+        /* left: 12%; */
+        width: 100%;
+        margin-left: 42px;
+    }
+   :host>>> .ui-autocomplete-dd input.ui-corner-all{
+    width: 78%;
+   }
+}

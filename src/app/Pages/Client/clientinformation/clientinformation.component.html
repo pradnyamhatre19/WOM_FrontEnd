@@ -1,0 +1,361 @@
+<div class="contain">
+    <div class=" heading">
+        <span class="leftheading">Client</span>
+        <!-- <span class="rightheading">You are here : Client</span> -->
+    </div>
+    <form [formGroup]="form">
+        <!-- <span formControlName="temp" > </span>  -->
+        <div class="maindiv row">
+            <div class=" col-lg-12 col-md-12 col-sm-12 zerospaceextra">
+                <div class="nopadding col-lg-6 col-md-6 col-sm-6">
+                    <div class="project_To_duplicate_block">
+                        <span class="client_name_head_text">Client Name
+                            <span class="star">*</span>
+                        </span>
+                        <div class="input_text">
+                            <input type="text" class="text" formControlName="clientName" placeholder="Enter">
+                        </div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="!!clientName.touched && !!clientName.invalid">
+                        <div  *ngIf="!!clientName?.errors.required">
+                            Please enter client name
+                         </div>
+                        <div *ngIf="!!clientName.errors.pattern">
+                            Please enter valid client name
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- <div class="nopadding col-lg-6 col-md-6 col-sm-6">
+                    <div class="project_To_duplicate_block">
+                        <span class="client_name_head_text">Client Address
+                            <span class="star">*</span>
+                        </span>
+                        <div class="siteaddress_wrapper">
+                            <textarea class="siteaddress_text2" placeholder="Enter Client Address here..." formControlName="clientAddress" [(ngModel)]="ClientAddress"></textarea>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class=" col-lg-12 col-md-12 col-sm-12 zerospaceextra">
+                <div class="nopadding col-lg-6 col-md-6 col-sm-6">
+                    <div class="project_To_duplicate_block">
+                        <span class="client_name_head_text">Address
+                            <span class="star">*</span>
+                        </span>
+                        <div class="input_text">
+                            <input type="text" class="text" placeholder="Line 1"
+                                formControlName="address1">
+                        </div>
+                    </div>
+                    <!-- <div class="alert alert-danger" *ngIf="address1.touched && address1.invalid">
+                        Please enter address
+                    </div> -->
+                    <div class="alert alert-danger" *ngIf="address1.touched && address1.invalid">
+                        <div *ngIf="!!address1.errors.required">Please enter address.</div>
+                        <div *ngIf="!!address1.errors.pattern">Please Enter Valid address.</div>
+                    </div>
+                </div>
+                <div class="nopadding col-lg-6 col-md-6 col-sm-6">
+                    <div class="project_To_duplicate_block2">
+                        <span class="client_name_head_text">
+                            <span class="star">&nbsp;</span>
+                        </span>
+                        <div class="input_text">
+                            <input type="text" class="text" placeholder="Line 2"
+                                formControlName="address2">
+                        </div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="address2.touched && address2.invalid">
+                        <div *ngIf="!!address2.errors.pattern">Please Enter Valid address.</div>
+                    </div>
+                    <!-- <div class="alert alert-danger" *ngIf="address2.touched && address2.invalid">
+                        Please enter address
+                    </div> -->
+                </div>
+            </div>
+            <!-- 1sst drop -->
+            <div class=" col-lg-12 col-md-12 col-sm-12 zerospaceextra">
+                <div class="row zerospace zeromargin">
+                    <div class=" col-lg-4 col-md-4 col-sm-4 zerospace">
+                        <div class="project_To_duplicate_block1">
+                            <span class="client_name_head_text">State
+                                <span class="star">*</span>
+                            </span>
+                            <div class="ui-fluid">
+                            <div class="drop_list_client_name">
+                                <p-autoComplete #demo1 formControlName="stateName" [suggestions]="filteredstate"
+                                    (completeMethod)="filterstate($event)" field="label" dataKey="id" [size]="30"
+                                    [minLength]="1" placeholder="Search or Select" [dropdown]="true" (onDropdownClick)="stateDropdown()"
+                                    (onSelect)="showCity($event)" forceSelection="true">
+                                </p-autoComplete>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="stateName.touched && stateName.invalid">
+                            Please select state
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-4 col-sm-4 zerospace">
+                        <div class="project_To_duplicate_block1">
+                            <span class="client_name_head_text">City
+                                <span class="star">*</span>
+                            </span>
+                            <div class="ui-fluid">
+                            <div class="drop_list_client_name">
+                                <p-autoComplete #demo1 formControlName="cityName" [suggestions]="filteredcity"
+                                    (completeMethod)="filtercity($event)" field="label" dataKey="id" [size]="30"
+                                    [minLength]="1" placeholder="Search or Select" [dropdown]="true" (onDropdownClick)="cityDropdown()"
+                                    forceSelection="true">
+                                </p-autoComplete>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="cityName.touched && cityName.invalid">
+                            Please select city
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-4 col-sm-4 zerospace">
+                        <div class="project_To_duplicate_block1">
+                            <span class="client_name_head_text">Pincode
+                                <span class="star">&nbsp;</span>
+                            </span>
+                            <div class="input_text">
+                                <input type="text" class="text" maxlength="6" placeholder="" formControlName="pincode">
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="pincode.touched && pincode.invalid">
+                            Please Enter valid 6 Digit Postal Index Number.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--  -->
+            <!-- category -->
+            <div class=" col-lg-12 col-md-12 col-sm-12 zerospaceextra">
+                <div class="row zerospace zeromargin">
+                    <div class=" col-lg-4 col-md-4 col-sm-4 zerospace">
+                        <div class="project_To_duplicate_block1">
+                            <span class="client_name_head_text">Category
+                                <span class="star">*</span>
+                            </span>
+                            <div class="ui-fluid">
+                            <div class="drop_list_client_name">
+                                <p-autoComplete #demo1 formControlName="categoryName" [suggestions]="filteredcategory"
+                                    (completeMethod)="filtercategory($event)" field="label" dataKey="id" [size]="30"
+                                    [minLength]="1" placeholder="Search or Select" [dropdown]="true" (onDropdownClick)="categoryDropdown()"
+                                    forceSelection="true">
+                                </p-autoComplete>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="categoryName.touched && categoryName.invalid">
+                            Please select category
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-4 col-sm-4 zerospace">
+                        <div class="project_To_duplicate_block1">
+                            <span class="client_name_head_text">Type Of Space
+                                <span class="star">*</span>
+                            </span>
+                            <div class="ui-fluid">
+                            <div class="drop_list_client_name">
+                                <p-autoComplete #demo1 formControlName="spacesName" [suggestions]="filteredspaces"
+                                    (completeMethod)="filterspaces($event)" field="label" dataKey="id" [size]="30"
+                                    [minLength]="1" placeholder="Search or Select" [dropdown]="true" (onDropdownClick)="Type_Of_Space_Dropdown()"
+                                    forceSelection="true">
+                                </p-autoComplete>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="spacesName.touched && spacesName.invalid">
+                            Please select spaces name
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-4 col-sm-4 zerospace">
+                        <div class="project_To_duplicate_block1">
+                            <span class="client_name_head_text">Industry
+                                <span class="star">*</span>
+                            </span>
+                            <div class="ui-fluid">
+                            <div class="drop_list_client_name">
+                                <p-autoComplete #demo1 formControlName="industryName" [suggestions]="filteredIndustry"
+                                    (completeMethod)="filterIndustry($event)" field="label" dataKey="id" [size]="30"
+                                    [minLength]="1" placeholder="Search or Select" [dropdown]="true" (onDropdownClick)="IndustryDropdown()"
+                                    forceSelection="true">
+                                </p-autoComplete>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="industryName.touched && industryName.invalid">
+                            Please select industry
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--  -->
+
+
+            <div class=" col-lg-12 col-md-12 col-sm-12 client_Advance_wrapper zerospaceextra">
+                <!-- <div class="advance_contact_flex"> -->
+                <div class="yellowunderline">
+                    <span class="contact">Contacts</span>
+                </div>
+                <!-- </div> -->
+                <div class="client_img_class">
+                    <img src="assets/images/BlueIcons/icons8-plus-40.png" class="client_img_icon cp" (click)="addParameter()" data-toggle="tooltip" title="Add Contacts">
+                </div>
+            </div>
+
+            <!-- form array  *ngIf="Plus"-->
+            <form formArrayName="Parameter" class="formclass">
+                <div [formGroupName]="i" *ngFor="let parameter of Parameter.controls; let i=index">
+                    <div class=" col-lg-12 col-md-12 col-sm-12 zerospaceextra">
+                        <div class="row nopaddingextra">
+                        <div class="nopadding col-lg-6 col-md-6 col-sm-6">
+                            <div class="project_To_duplicate_block">
+                                <span class="client_name_head_text">Contact Name <span class="star">*</span></span>
+                                <div class="input_text">
+                                    <input type="text" class="text" formControlName="contactName" placeholder="Enter">
+                                </div>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="!!parameter.controls.contactName.touched  &&  !!parameter.controls.contactName.invalid">
+                                <div  *ngIf="!!parameter.controls.contactName.errors.required">
+                                    Please enter client name
+                                 </div>
+                                <div *ngIf="!!parameter.controls.contactName.errors.pattern">Please Enter Valid Name.</div>
+                            </div>
+                        </div>
+                        <div class="nopadding col-lg-5 col-md-5 col-sm-5">
+                            <!-- <div class="client_contact_remove">
+                                <img src="assets/images/BlueIcons/trash.png" class="client_img_icon" (click)="removeParamter(i)">
+                            </div> -->
+                            <div class="project_To_duplicate_block3">
+                                <span class="client_name_head_text">Designation
+                                    <!-- <span class="star"></span> -->
+                                </span>
+                                <div class="ui-fluid">
+                                <div class="drop_list_client_name">
+                                    <p-autoComplete #demo1 formControlName="designation" [suggestions]="filtereddesignation"
+                                        (completeMethod)="searchdesignation($event)" field="label" dataKey="id" [size]="30"
+                                        [minLength]="1" placeholder="Search or Select" [dropdown]="true"
+                                        (onDropdownClick)="designationDropdown()" forceSelection="true">
+                                    </p-autoComplete>
+                                </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="nopadding col-lg-1 col-md-1 col-sm-1">
+                            <div class="client_contact_remove">
+                                <img src="assets/images/BlueIcons/trash.png" class="client_img_icon cp" (click)="removeParamter(i)" data-toggle="tooltip" title="Delete Contacts">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class=" col-lg-12 col-md-12 col-sm-12 zerospaceextra">
+                        <div class="row nopaddingextra">
+                        <div class="nopadding col-lg-6 col-md-6 col-sm-6">
+                            <div class="project_To_duplicate_block">
+                                <span class="client_name_head_text">Email </span>
+                                <div class="input_text">
+                                    <input type="text" class="text" formControlName="email" placeholder="Enter">
+                                </div>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="!!parameter.controls.email.touched  &&  !!parameter.controls.email.invalid">
+                                <div *ngIf="!!parameter.controls.email.errors.pattern">Please Enter Valid Email
+                                    Address.</div>
+                            </div>
+                        </div>
+                        <div class="nopadding col-lg-5 col-md-5 col-sm-5">
+                            <div class="project_To_duplicate_block3">
+                                <span class="client_name_head_text">Mobile No </span>
+                                <div class="input_text">
+                                    <input type="text" class="text" formControlName="mobileno" maxlength="10" placeholder="Enter">
+                                </div>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="!!parameter.controls.mobileno.touched  &&  !!parameter.controls.mobileno.invalid">
+                                <div *ngIf="!!parameter.controls.mobileno.errors.pattern">Please Enter Valid 10 Digit
+                                    Mobile no.</div>
+                            </div>
+                            <!-- <div  *ngIf="mobileno.errors.pattern">Please Enter valid Contact </div> -->
+                        </div>
+                        <div class="nopadding col-lg-1 col-md-1 col-sm-1 absclass">
+                        </div>
+                        </div>
+                    </div>
+                    <!-- <div class="client_contact_remove">
+                        <img src="assets/images/BlueIcons/trash.png" class="client_img_icon" (click)="removeParamter(i)">
+                    </div> -->
+                </div>
+            </form>
+            <div *ngIf="formerror && form.invalid" class="alert alert-danger">
+                Please fill all the details
+            </div>
+            <div [ngClass]="{'backendErrorClass':this._communicationservice.backendError}" *ngIf="this._communicationservice.backendError">
+                {{this._communicationservice.backendMsg}}
+            </div>
+            <!-- {{form.value | json}} -->
+            
+
+        </div>
+    </form>
+    <div class=" col-lg-12 col-md-12 zerospaceextra extraspace">
+            <span class="client_name_head_text">&nbsp;</span>
+            <div class="clientright">
+            <div class="clientInliner">
+                <input type="submit" value="Cancel" class="btn btn-success2" (click)="Cancel()">
+            </div>
+            <div class="clientInliner">
+                <input type="submit" value="Submit" class="btn btn-success1" *ngIf="!edit" (click)="Submit(form.value)" [disabled]="form.invalid">
+                <input type="submit" value="Update" class="btn btn-success1" *ngIf="edit" (click)="Update(form.value)" [disabled]="form.invalid">
+            </div>
+            
+            </div>
+        </div>
+    <div class="col-lg-12 col-md-12" class="extrabottom">
+    </div>
+</div>
+
+<!-- edit message pop-up -->
+<p-dialog header="" [(visible)]="display_message_for_client_add" [closable]="false" [modal]="true" [responsive]="true"
+    [minWidth]="200" [minY]="70" [maximizable]="false" [baseZIndex]="10000" appendTo="body">
+    <div class="pop_open_close_wraper">
+        <div class="pop_open_close_header pop_open_close_bottom">
+            {{this.message}}
+        </div>
+        <div class="ok_class">
+            <button (click)="okMessageForClientAdd()" class="pop_button pop_button_orange">OK</button>
+        </div>
+    </div>
+</p-dialog>
+
+<!-- popup -->
+<p-dialog 
+[(visible)]="display" 
+[closable]="false" 
+[modal]="true" 
+[responsive]="true" 
+[minWidth]="200" 
+[minY]="70" 
+[maximizable]="false"
+[baseZIndex]="10000"
+appendTo="body">
+<div class="container">
+  <p class="headBold">Are you sure you want to delete this Contacts?</p>
+<div class="btnClass">
+  <div class="inliner">
+    <div>
+      <button type="button" class="btn popupbtn orangeclass" (click)="callDelete()">Yes</button>
+    </div>
+    <div class="leftsilverclass">
+      <button type="button" class="btn popupbtn silverclass" (click)="closeDialog()">No</button>
+    </div>
+  </div>
+  </div>
+</div>
+</p-dialog>
